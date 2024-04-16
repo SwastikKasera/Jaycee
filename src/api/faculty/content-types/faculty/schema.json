@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faculties",
+  "info": {
+    "singularName": "faculty",
+    "pluralName": "faculties",
+    "displayName": "Faculty"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "facultyName": {
+      "type": "string",
+      "required": true
+    },
+    "facultyId": {
+      "type": "uid",
+      "targetField": "facultyName",
+      "required": true
+    },
+    "facultyPhone": {
+      "type": "string",
+      "regex": "^\\d{10}$",
+      "required": true
+    },
+    "facultyDOB": {
+      "type": "date"
+    },
+    "facultyGender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ],
+      "required": true
+    },
+    "facultyQualification": {
+      "type": "text",
+      "required": true
+    },
+    "facultyPosition": {
+      "type": "enumeration",
+      "enum": [
+        "Teacher",
+        "Class Teacher",
+        "Senior Teacher",
+        "Vice Principle",
+        "Principle"
+      ]
+    },
+    "facultySubjectExpert": {
+      "type": "enumeration",
+      "enum": [
+        "Hindi",
+        "English",
+        "Mathematics",
+        "Science",
+        "Social Studies",
+        "Arts",
+        "General Knowledge",
+        "Computer"
+      ]
+    },
+    "facultyPhoto": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notice_boards",
+  "info": {
+    "singularName": "notice-board",
+    "pluralName": "notice-boards",
+    "displayName": "notice-board"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "notice_name": {
+      "type": "string",
+      "required": true
+    },
+    "notice_media": {
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "notice_date": {
+      "type": "datetime"
+    },
+    "notice_description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
