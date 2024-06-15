@@ -35,23 +35,23 @@ const Footer = () => {
     <footer className="bg-secondary text-background body-font">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-          <a className="flex title-font font-medium items-center md:justify-start justify-center ">
+          <Link to="/" className="flex title-font font-medium items-center md:justify-start justify-center ">
             <img src={logo} className="w-16" alt="" />
             <span className="ml-3 text-xl">Jaycee Bal Mandir School</span>
-          </a>
+          </Link>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-            <a className="">
+            <Link to="" className="">
               <TbBrandYoutube size={26} />
-            </a>
-            <a className="ml-3 ">
+            </Link>
+            <Link to="" className="ml-3 ">
               <CiTwitter size={26} />
-            </a>
-            <a className="ml-3 ">
+            </Link>
+            <Link to="" className="ml-3 ">
               <CiInstagram size={26} />
-            </a>
-            <a className="ml-3 ">
+            </Link>
+            <Link to="" className="ml-3 ">
               <CiFacebook size={26} />
-            </a>
+            </Link>
           </span>
         </div>
         <div className="flex-grow flex flex-wrap justify-evenly -mb-10 md:mt-0 mt-10 md:text-left text-center">
