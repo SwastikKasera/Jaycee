@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "notice_boards",
+  "collectionName": "fee_structures",
   "info": {
-    "singularName": "notice-board",
-    "pluralName": "notice-boards",
-    "displayName": "Notice Board",
+    "singularName": "fee-structure",
+    "pluralName": "fee-structures",
+    "displayName": "Fee Structure",
     "description": ""
   },
   "options": {
@@ -12,22 +12,25 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "notice_name": {
+    "Name": {
       "type": "string",
       "required": true
     },
-    "notice_media": {
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "File": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "allowedTypes": [
         "images",
         "files"
       ]
     },
-    "notice_date": {
-      "type": "date",
-      "required": true
+    "date": {
+      "type": "date"
     }
   }
 }

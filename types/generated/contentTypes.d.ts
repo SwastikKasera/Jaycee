@@ -794,6 +794,7 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
     singularName: 'faculty';
     pluralName: 'faculties';
     displayName: 'Faculty';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -802,11 +803,10 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
     facultyName: Attribute.String & Attribute.Required;
     facultyId: Attribute.UID<'api::faculty.faculty', 'facultyName'> &
       Attribute.Required;
-    facultyPhone: Attribute.String & Attribute.Required;
     facultyDOB: Attribute.Date;
     facultyGender: Attribute.Enumeration<['Male', 'Female']> &
       Attribute.Required;
-    facultyQualification: Attribute.Text & Attribute.Required;
+    facultyQualification: Attribute.String & Attribute.Required;
     facultyPosition: Attribute.Enumeration<
       [
         'Teacher',
@@ -827,8 +827,10 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
         'General Knowledge',
         'Computer'
       ]
-    >;
+    > &
+      Attribute.Required;
     facultyPhoto: Attribute.Media & Attribute.Required;
+    facultyBio: Attribute.Text & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -840,6 +842,71 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::faculty.faculty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFeeStructureFeeStructure extends Schema.CollectionType {
+  collectionName: 'fee_structures';
+  info: {
+    singularName: 'fee-structure';
+    pluralName: 'fee-structures';
+    displayName: 'Fee Structure';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    File: Attribute.Media & Attribute.Required;
+    date: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::fee-structure.fee-structure',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::fee-structure.fee-structure',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGalleryGallery extends Schema.CollectionType {
+  collectionName: 'galleries';
+  info: {
+    singularName: 'gallery';
+    pluralName: 'galleries';
+    displayName: 'Gallery';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery.gallery',
       'oneToOne',
       'admin::user'
     > &
@@ -852,7 +919,8 @@ export interface ApiNoticeBoardNoticeBoard extends Schema.CollectionType {
   info: {
     singularName: 'notice-board';
     pluralName: 'notice-boards';
-    displayName: 'notice-board';
+    displayName: 'Notice Board';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -860,8 +928,7 @@ export interface ApiNoticeBoardNoticeBoard extends Schema.CollectionType {
   attributes: {
     notice_name: Attribute.String & Attribute.Required;
     notice_media: Attribute.Media & Attribute.Required;
-    notice_date: Attribute.DateTime;
-    notice_description: Attribute.Text & Attribute.Required;
+    notice_date: Attribute.Date & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -873,45 +940,6 @@ export interface ApiNoticeBoardNoticeBoard extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::notice-board.notice-board',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiStudentAchievementStudentAchievement
-  extends Schema.CollectionType {
-  collectionName: 'student_achievements';
-  info: {
-    singularName: 'student-achievement';
-    pluralName: 'student-achievements';
-    displayName: 'Student Achievement';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    fullName: Attribute.String & Attribute.Required;
-    photo: Attribute.Media & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    year: Attribute.Integer & Attribute.Required;
-    standard: Attribute.Enumeration<
-      ['Class 8th', 'Class 9th', 'Class 10th', 'Class 11th', 'Class 12th']
-    > &
-      Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::student-achievement.student-achievement',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::student-achievement.student-achievement',
       'oneToOne',
       'admin::user'
     > &
@@ -938,8 +966,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::faculty.faculty': ApiFacultyFaculty;
+      'api::fee-structure.fee-structure': ApiFeeStructureFeeStructure;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::notice-board.notice-board': ApiNoticeBoardNoticeBoard;
-      'api::student-achievement.student-achievement': ApiStudentAchievementStudentAchievement;
     }
   }
 }

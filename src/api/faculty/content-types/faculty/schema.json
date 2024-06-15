@@ -4,7 +4,8 @@
   "info": {
     "singularName": "faculty",
     "pluralName": "faculties",
-    "displayName": "Faculty"
+    "displayName": "Faculty",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,11 +21,6 @@
       "targetField": "facultyName",
       "required": true
     },
-    "facultyPhone": {
-      "type": "string",
-      "regex": "^\\d{10}$",
-      "required": true
-    },
     "facultyDOB": {
       "type": "date"
     },
@@ -37,7 +33,7 @@
       "required": true
     },
     "facultyQualification": {
-      "type": "text",
+      "type": "string",
       "required": true
     },
     "facultyPosition": {
@@ -61,14 +57,19 @@
         "Arts",
         "General Knowledge",
         "Computer"
-      ]
+      ],
+      "required": true
     },
     "facultyPhoto": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "facultyBio": {
+      "type": "text",
       "required": true
     }
   }
