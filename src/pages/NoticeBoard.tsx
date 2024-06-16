@@ -44,7 +44,7 @@ const NoticeBoard = () => {
     const fetchNotices = async () => {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/notice-boards/?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
         headers: {
-          Authorization: 'Bearer fa628a6f55109fcb923bec6f659f52cc6943c60f8151ab82ab12b0b10d32001d8bee4c44e276797d6918c671a467c5ac71952150b049f1f7990e30f750e606a97083d9d414a661652f11f2c53eb2d98f622075cb73a9902efdff5f250ac7c85cbcf31623cc6124010e32211f22709413569bf85f95a98481545e99cbf676c5f2'
+          Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
         }
       });
 
