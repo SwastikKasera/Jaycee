@@ -1,9 +1,9 @@
 import { LuPhone } from "react-icons/lu";
 import Button from "./Button";
-import Dropdown from "./Dropdown";
 import React, { useState } from "react";
 import logo from '../assets/logo.png'
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 

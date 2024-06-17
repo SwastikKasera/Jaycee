@@ -11,15 +11,15 @@ const HeroSection = () => {
   };
   return (
     <section className="text-gray-600 bg-cover body-font" style={sectionStyle}>
-      <div className="w-full bg-[#0000003d] flex px-5 py-24 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+      <div className="w-full bg-[#0000003d] flex px-5 py-24 flex-col items-center">
+        <div className="lg:flex-grow md:max-w-2/3 md:w-2/3 flex flex-col mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-5xl text-5xl mb-4 font-medium text-white">
             Discover, Learn, Grow: Where Every Moment is a Lesson
           </h1>
           <p className="mb-8 leading-relaxed text-white">
             Nurture Your Talents and Unleash Your Potential
           </p>
-          <div className="flex justify-center">
+          <div className="flex justify-center w-full gap-4">
             <Button
               text="Admission Open"
               key={"admission_open"}
@@ -27,7 +27,7 @@ const HeroSection = () => {
               hasIcon={true}
               onClick={() => console.log("clicked")}
             />
-            <div className="flex justify-start items-center gap-1">
+            <div className="flex justify-start text-white items-center gap-1">
               <IoSparklesSharp />
               <p>Check Details</p>
               <BsArrowRight />

@@ -1,0 +1,5 @@
+/* Add this to your CSS file */
+.sidebar {
+    transition: transform 0.3s ease-in-out;
+  }
+  
