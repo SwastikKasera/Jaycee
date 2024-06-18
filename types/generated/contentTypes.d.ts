@@ -967,6 +967,7 @@ export interface ApiStudentAchievementStudentAchievement
     studentYear: Attribute.String;
     studentRank: Attribute.String;
     studentPhoto: Attribute.Media & Attribute.Required;
+    studentMarks: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
