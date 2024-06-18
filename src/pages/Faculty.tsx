@@ -91,7 +91,7 @@ const Faculty = () => {
                     <div className="flex justify-start items-start">
                       <img
                         alt="faculty"
-                        src={`${process.env.REACT_APP_API_URL}${faculty.facultyPhoto.medium}` || "https://dummyimage.com/106x106"}
+                        src={`${faculty.facultyPhoto.medium}` || "https://dummyimage.com/106x106"}
                         className="w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"
                       />
                       <span className="flex-grow flex flex-col pl-4">

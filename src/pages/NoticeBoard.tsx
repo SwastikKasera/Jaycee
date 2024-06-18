@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface NoticeMedia {
   id: number;
@@ -38,18 +40,25 @@ const NoticeBoard = () => {
   const [noticeData, setNoticeData] = useState<Notice[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [pageSize] = useState(5); // You can adjust the page size as needed
+  const [pageSize] = useState(5);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchNotices = async () => {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/notice-boards/?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
-        }
-      });
-
-      setNoticeData(response.data.data);
-      setTotalPages(response.data.meta.pagination.pageCount);
+      try {
+        setLoading(true);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/notice-boards/?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
+          }
+        });
+        setNoticeData(response?.data?.data);
+        setTotalPages(response?.data?.meta?.pagination?.pageCount);
+        setLoading(false);
+      } catch (error) {
+        console.log("Failed to load notice board");
+        setLoading(false);
+      }
     };
 
     fetchNotices();
@@ -88,25 +97,42 @@ const NoticeBoard = () => {
               </tr>
             </thead>
             <tbody>
-              {noticeData.map(notice => (
-                <tr key={notice.id} className="border-b">
-                  <td className="py-2 px-4 text-left w-2/4">{notice.attributes.notice_name}</td>
-                  <td className="py-2 px-4 text-left">{new Date(notice.attributes.notice_date).toLocaleDateString()}</td>
-                  <td className="py-2 px-4 text-left">
-                    {notice.attributes.notice_media.data.map(media => (
-                      <a
-                        key={media.id}
-                        href={`${process.env.REACT_APP_API_URL}${media.attributes.formats?.large?.url || media.attributes.url}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 hover:underline block"
-                      >
-                        {media.attributes.name}
-                      </a>
-                    ))}
-                  </td>
-                </tr>
-              ))}
+              {loading ? (
+                // Render skeleton loaders
+                Array.from({ length: pageSize }).map((_, index) => (
+                  <tr key={index} className="border-b">
+                    <td className="py-2 px-4 text-left w-2/4">
+                      <Skeleton />
+                    </td>
+                    <td className="py-2 px-4 text-left">
+                      <Skeleton />
+                    </td>
+                    <td className="py-2 px-4 text-left">
+                      <Skeleton />
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                noticeData.map(notice => (
+                  <tr key={notice.id} className="border-b">
+                    <td className="py-2 px-4 text-left w-2/4">{notice?.attributes?.notice_name}</td>
+                    <td className="py-2 px-4 text-left">{new Date(notice?.attributes?.notice_date).toLocaleDateString()}</td>
+                    <td className="py-2 px-4 text-left">
+                      {notice?.attributes?.notice_media?.data !== null && notice?.attributes?.notice_media?.data.map(media => (
+                        <a
+                          key={media?.id}
+                          href={`${media.attributes.formats?.large?.url || media.attributes.url}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:underline block"
+                        >
+                          {media?.attributes?.name}
+                        </a>
+                      ))}
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

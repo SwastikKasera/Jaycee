@@ -29,18 +29,18 @@ const GalleryContent = () => {
 const AcademicsContent = ()=>{
     return(
         <div className="w-[550px] bg-white rounded-lg p-6 shadow-xl flex justify-between items-center gap-4">
-            <div className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4">
+            <Link to="/faculty" className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4">
                 <img src={facultyImg} className="w-32 h-32 rounded-lg" alt="" />
                 <h3 className="font-semibold">Our Faculty</h3>
-            </div>
-            <div className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4">
+            </Link>
+            <Link to="/syllabus" className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4">
                 <img src={syllabusImg} className="w-32 h-32 rounded-lg" alt="" />
                 <h3 className="font-semibold">Syllabus</h3>
-            </div>
-            <div className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4">
+            </Link>
+            <Link to="noticeboard" className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4">
                 <img src={noticeBoardImg} className="w-32 h-32 rounded-lg" alt="" />
                 <h3 className="font-semibold">Notice Board</h3>
-            </div>
+            </Link>
         </div>
     )
 }
@@ -83,9 +83,11 @@ const AnimatedNavbar = () => {
           <AnimatedDropdown link="/contact" text="Contact" dropdownContent={EmptyComponent}/>
         </div>
         <div className="w-fit flex gap-2 justify-end">
-        <Button hasIcon={true} icon={<LuPhone />} text="Enquire Now" />
-        <SidebarButton isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} setActive={setActive} />
-      </div>
+          <Button hasIcon={true} icon={<LuPhone />} text="Enquire Now" styles="text-xs md:text-base"/>
+          <div className="block lg:hidden">
+            <SidebarButton isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} setActive={setActive} />
+          </div>
+        </div>
       </div>
       <Sidebar
         isOpen={isSidebarOpen}
