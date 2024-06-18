@@ -12,13 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
+    "galleryCategory": {
+      "type": "string",
+      "required": true
+    },
+    "galleryImages": {
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "galleryYear": {
+      "type": "string"
     }
   }
 }

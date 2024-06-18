@@ -895,7 +895,9 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    image: Attribute.Media & Attribute.Required;
+    galleryCategory: Attribute.String & Attribute.Required;
+    galleryImages: Attribute.Media & Attribute.Required;
+    galleryYear: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -947,6 +949,41 @@ export interface ApiNoticeBoardNoticeBoard extends Schema.CollectionType {
   };
 }
 
+export interface ApiStudentAchievementStudentAchievement
+  extends Schema.CollectionType {
+  collectionName: 'student_achievements';
+  info: {
+    singularName: 'student-achievement';
+    pluralName: 'student-achievements';
+    displayName: 'Student Achievement';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    studentName: Attribute.String & Attribute.Required;
+    studentClass: Attribute.String & Attribute.Required;
+    studentYear: Attribute.String;
+    studentRank: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::student-achievement.student-achievement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::student-achievement.student-achievement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -969,6 +1006,7 @@ declare module '@strapi/types' {
       'api::fee-structure.fee-structure': ApiFeeStructureFeeStructure;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::notice-board.notice-board': ApiNoticeBoardNoticeBoard;
+      'api::student-achievement.student-achievement': ApiStudentAchievementStudentAchievement;
     }
   }
 }

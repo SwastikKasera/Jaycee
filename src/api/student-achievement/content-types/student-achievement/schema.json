@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "student_achievements",
+  "info": {
+    "singularName": "student-achievement",
+    "pluralName": "student-achievements",
+    "displayName": "Student Achievement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "studentName": {
+      "type": "string",
+      "required": true
+    },
+    "studentClass": {
+      "type": "string",
+      "required": true
+    },
+    "studentYear": {
+      "type": "string"
+    },
+    "studentRank": {
+      "type": "string"
+    }
+  }
+}
