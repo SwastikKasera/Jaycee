@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import logo from "../assets/logo.png";
@@ -8,6 +8,8 @@ import facultyImg from "../assets/faculty.png"
 import noticeBoardImg from "../assets/noticeBoard.jpg"
 import syllabusImg from "../assets/classSyllabus.jpg"
 import { IoChevronDown } from "react-icons/io5";
+import { SidebarButton } from "./SidebarButton";
+import Sidebar from "./Sidebar";
 
 const GalleryContent = () => {
   return (
@@ -46,23 +48,25 @@ const AcademicsContent = ()=>{
 const EmptyComponent = () => null;
 
 const AnimatedNavbar = () => {
-    // const handleClick = () => {
-    //     if (onClick) {
-    //       onClick();
-    //     }
-    //     window.open(`tel:${phoneNumber}`, '_self');
-    //   };
-    
+  const [isSidebarOpen, setIsSidebarOpen] = useState(localStorage.getItem("isSidebarOpen") === "true" || false);
+  const [active, setActive] = useState(
+    localStorage.getItem("isActive") === "true" || false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("isSidebarOpen", isSidebarOpen.toString());
+    localStorage.setItem("isActive", active.toString());
+  }, [isSidebarOpen, active]);
   return (
     <>
-      <div className="bg-secondary hidden md:flex w-full justify-between items-center py-1 px-2">
+      <div className="bg-secondary flex w-full justify-between items-center py-1 px-2">
         <Link to="/" className="w-fit flex justify-start items-center">
           <img src={logo} alt="" />
           <h1 className="text-white text-xl">
             Jaycee Bal <p>Mandir School</p>
           </h1>
         </Link>
-        <div className=" w-fit flex justify-center items-center gap-2 text-md">
+        <div className=" w-fit hidden lg:flex justify-center items-center gap-2 text-md">
           <AnimatedDropdown link="/" text="Home" dropdownContent={EmptyComponent}/>
           <AnimatedDropdown
             link="/gallery"
@@ -78,10 +82,16 @@ const AnimatedNavbar = () => {
           <AnimatedDropdown link="/about" text="About" dropdownContent={EmptyComponent}/>
           <AnimatedDropdown link="/contact" text="Contact" dropdownContent={EmptyComponent}/>
         </div>
-        <div className="w-fit flex justify-end">
-          <Button hasIcon={true} icon={<LuPhone />} text="Enquire Now" />
-        </div>
+        <div className="w-fit flex gap-2 justify-end">
+        <Button hasIcon={true} icon={<LuPhone />} text="Enquire Now" />
+        <SidebarButton isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} setActive={setActive} />
       </div>
+      </div>
+      <Sidebar
+        isOpen={isSidebarOpen}
+        setIsOpen={setIsSidebarOpen}
+        setActive={setActive}
+      />
     </>
   );
 };

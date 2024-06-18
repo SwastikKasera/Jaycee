@@ -4,6 +4,7 @@ import Achievements from '../components/Achievements'
 import StudentAchievement from '../components/StudentAchievement'
 import AnimatedNavbar from '../components/AnimatedNavbar'
 import person from "../assets/person.jpg"
+import SidebarNavigation from '../components/Sidebar'
 
 const Home = () => {
   return (
