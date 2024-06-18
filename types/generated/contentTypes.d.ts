@@ -916,6 +916,36 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
   };
 }
 
+export interface ApiMainGalleryMainGallery extends Schema.CollectionType {
+  collectionName: 'main_galleries';
+  info: {
+    singularName: 'main-gallery';
+    pluralName: 'main-galleries';
+    displayName: 'Main Gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mainGallery: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-gallery.main-gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-gallery.main-gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNoticeBoardNoticeBoard extends Schema.CollectionType {
   collectionName: 'notice_boards';
   info: {
@@ -1007,6 +1037,7 @@ declare module '@strapi/types' {
       'api::faculty.faculty': ApiFacultyFaculty;
       'api::fee-structure.fee-structure': ApiFeeStructureFeeStructure;
       'api::gallery.gallery': ApiGalleryGallery;
+      'api::main-gallery.main-gallery': ApiMainGalleryMainGallery;
       'api::notice-board.notice-board': ApiNoticeBoardNoticeBoard;
       'api::student-achievement.student-achievement': ApiStudentAchievementStudentAchievement;
     }

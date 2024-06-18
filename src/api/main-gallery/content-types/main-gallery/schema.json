@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "main_galleries",
+  "info": {
+    "singularName": "main-gallery",
+    "pluralName": "main-galleries",
+    "displayName": "Main Gallery"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mainGallery": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}
