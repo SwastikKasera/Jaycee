@@ -25,6 +25,14 @@
     },
     "studentRank": {
       "type": "string"
+    },
+    "studentPhoto": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
