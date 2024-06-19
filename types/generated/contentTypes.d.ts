@@ -1016,6 +1016,39 @@ export interface ApiStudentAchievementStudentAchievement
   };
 }
 
+export interface ApiSyllabusSyllabus extends Schema.CollectionType {
+  collectionName: 'syllabi';
+  info: {
+    singularName: 'syllabus';
+    pluralName: 'syllabi';
+    displayName: 'Syllabus';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    syllabus_name: Attribute.String & Attribute.Required;
+    syllabus_date: Attribute.String & Attribute.Required;
+    syllabus_media: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::syllabus.syllabus',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::syllabus.syllabus',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1040,6 +1073,7 @@ declare module '@strapi/types' {
       'api::main-gallery.main-gallery': ApiMainGalleryMainGallery;
       'api::notice-board.notice-board': ApiNoticeBoardNoticeBoard;
       'api::student-achievement.student-achievement': ApiStudentAchievementStudentAchievement;
+      'api::syllabus.syllabus': ApiSyllabusSyllabus;
     }
   }
 }

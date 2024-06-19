@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "syllabi",
+  "info": {
+    "singularName": "syllabus",
+    "pluralName": "syllabi",
+    "displayName": "Syllabus",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "syllabus_name": {
+      "type": "string",
+      "required": true
+    },
+    "syllabus_date": {
+      "type": "string",
+      "required": true
+    },
+    "syllabus_media": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
