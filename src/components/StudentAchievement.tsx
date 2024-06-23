@@ -3,7 +3,8 @@ import StudentCard from "./StudentCard";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-
+import AOS from "aos";
+import 'aos/dist/aos.css';
 interface StudentAchievement {
   id: number;
   studentName: string;
@@ -44,13 +45,18 @@ const StudentAchievement = () => {
     fetchStudentData();
   }, []);
 
+  useEffect(() => {
+    AOS.init();
+    
+  }, [])
+
   return (
     <>
       <div className="my-8">
-        <h2 className="text-4xl md:text-5xl text-center font-semibold px-2">
-          Year 2024: Charming Results
+        <h2 data-aos="fade-up" className="text-4xl md:text-5xl text-center font-vidaloka font-semibold px-2">
+          Our Charming Results
         </h2>
-        <p className="text-xl text-center my-4">
+        <p data-aos="fade-up" data-aos-delay="150" className="text-xl text-center my-4 font-martel">
           Dedicated hardwork from students and staff drives exceptional results.
         </p>
       </div>
@@ -65,7 +71,7 @@ const StudentAchievement = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 flex-wrap">
         {!loading &&
             studentData.map((data) => (
-            <div className="w-full">
+            <div data-aos="fade-up" data-aos-delay="200" className="w-full">
                 <StudentCard
                 key={data.id}
                 name={data.studentName}

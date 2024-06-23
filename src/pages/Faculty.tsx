@@ -72,10 +72,10 @@ const Faculty = () => {
   return (
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-20">
-        <h1 className="sm:text-5xl text-4xl font-semibold title-font mb-4 text-gray-900">
+        <h1 className="sm:text-5xl md:6xl font-vidaloka text-4xl font-semibold title-font mb-4 text-gray-900">
           Our Faculty
         </h1>
-        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+        <p className="lg:w-2/3 mx-auto leading-relaxed text-lg font-martel">
           Meet the dedicated educators who ignite curiosity, foster growth, and champion excellence in every student's journey.
         </p>
       </div>
@@ -95,18 +95,18 @@ const Faculty = () => {
                         className="w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"
                       />
                       <span className="flex-grow flex flex-col pl-4">
-                        <span className="title-font font-semibold text-black">
+                        <span className="title-font font-semibold text-black text-lg font-karla">
                           {faculty.facultyName}
                         </span>
-                        <span className="text-secondary text-sm">{faculty.facultyQualification}</span>
+                        <span className="text-secondary text-sm font-martel">{faculty.facultyQualification}</span>
                       </span>
                     </div>
                     <div className="flex justify-center items-center gap-2">
-                      <p className="bg-primary w-fit px-2 py-1 rounded-full text-background">{faculty.facultyPosition}</p>
+                      <p className="bg-primary w-fit px-2 py-1 rounded-full text-background font-karla">{faculty.facultyPosition}</p>
                     </div>
                   </div>
                   <div>
-                    <p className="pt-2">{faculty.facultyBio}</p>
+                    <p className="pt-2 font-karla">{faculty.facultyBio}</p>
                   </div>
                 </div>
               </div>

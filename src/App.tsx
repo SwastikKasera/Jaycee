@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useRef } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -10,23 +10,31 @@ import Gallery from "./pages/Gallery";
 import NoticeBoard from "./pages/NoticeBoard";
 import Admission from "./pages/Admission";
 import AnimatedNavbar from "./components/AnimatedNavbar";
+import Syllabus from "./pages/Syllabus";
+import Cursor from "./StickyCursor/StickyCursor";
 
 function App() {
+  const stickyRef = useRef<HTMLDivElement>(null);
+
   return (
-    <BrowserRouter>
-      <AnimatedNavbar />
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faculty" element={<Faculty />} />
-          <Route path="/gallery/images" element={<Gallery />} />
-          <Route path="/noticeboard" element={<NoticeBoard />} />
-          <Route path="/admission" element={<Admission />} />
-        </Routes>
-      </div>
-      <Footer />
-    </BrowserRouter>
+    <div className="relative">
+      <Cursor />
+      <BrowserRouter>
+        <AnimatedNavbar />
+        <div className="App overflow-x-hidden" ref={stickyRef}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faculty" element={<Faculty />} />
+            <Route path="/gallery/images" element={<Gallery />} />
+            <Route path="/noticeboard" element={<NoticeBoard />} />
+            <Route path="/admission" element={<Admission />} />
+            <Route path="/syllabus" element={<Syllabus />} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 

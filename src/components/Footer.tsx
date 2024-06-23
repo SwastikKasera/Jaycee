@@ -32,7 +32,7 @@ const Footer = () => {
     },
   ];
   return (
-    <footer className="bg-secondary text-background body-font">
+    <footer className="bg-secondary text-background body-font font-karla">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <Link to="/" className="flex title-font font-medium items-center md:justify-start justify-center ">
@@ -60,8 +60,8 @@ const Footer = () => {
               Important Links
             </h2>
             <nav className="flex flex-col justify-start items-start gap-3 mb-10">
-              {links.map((l) => (
-                <Link to={l.link} className="hover:text-accent">
+              {links.map((l, index) => (
+                <Link to={l.link} key={index} className="hover:text-accent">
                   {l.text}
                 </Link>
               ))}
@@ -79,12 +79,12 @@ const Footer = () => {
               <div className="flex justify-start items-center gap-2">
                 <p className="flex justify-center items-center">
                   <FaPhoneAlt className="inline-block mr-2 text-accent w-5" />
-                  +91 98765 97685
+                  +91 94156 79969
                 </p>
               </div>
               <div className="flex justify-start items-start gap-2">
-                <p className="flex justify-center items-center w-full">
-                  <IoLocationSharp className="inline-block mr-2 text-accent w-5" />
+                <IoLocationSharp className="inline-block text-accent mt-2 w-5" />
+                <p className="max-w-80 text-start w-full">
                   Near Kali Mandir, Mussafarganj, Mirzapur, Uttar Pradesh 231001
                 </p>
               </div>

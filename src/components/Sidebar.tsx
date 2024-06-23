@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { SidebarButton } from './SidebarButton';
+import {LuBook, LuHome, LuImage, LuInfo, LuPhone, LuSchool2} from "react-icons/lu"
 
 interface SidebarProps {
   isOpen: boolean;
@@ -39,32 +40,47 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, setActive }) => {
           />
         )}
         <motion.div
-          className="fixed top-0 right-0 z-50 h-screen w-60 p-4 bg-white shadow-lg"
+          className="fixed top-0 right-0 z-50 h-screen w-60 p-4 bg-neutral-100 shadow-lg"
           variants={sidebarVariants}
           initial="closed"
           animate={isOpen ? 'open' : 'closed'}
           transition={{ type: 'tween' }}>
           <nav>
             <SidebarButton isOpen={isOpen} setIsOpen={setIsOpen} setActive={setActive} />
-            <ul className="space-y-4">
+            <ul className="space-y-2 mt-6">
               <li>
-                <Link to="/" onClick={toggleSidebar}>
-                  Home
+                <Link to="/" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                  <LuHome />Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" onClick={toggleSidebar}>
-                  About
+                <Link to="/about" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                  <LuInfo />About
                 </Link>
               </li>
               <li>
-                <Link to="/services" onClick={toggleSidebar}>
-                  Services
+                <Link to="/gallery" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                  <LuImage />Gallery
                 </Link>
               </li>
               <li>
-                <Link to="/contact" onClick={toggleSidebar}>
-                  Contact
+                <Link to="/academics" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                  <LuBook />Acedemics
+                </Link>
+              </li>
+              <li>
+                <Link to="/admission" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                  <LuSchool2 />Admission
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                  <LuInfo />About
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                  <LuPhone />Contact
                 </Link>
               </li>
             </ul>

@@ -9,7 +9,7 @@ interface ButtonInt {
 }
 const Button:React.FC<ButtonInt> = ({text, onClick, hasIcon, icon, styles}) => {
   return (
-    <button className={`bg-primary text-white px-3 py-2 flex justify-center items-center gap-2 rounded-full ${styles}`}>{hasIcon && icon}{text}</button>
+    <button onClick={onClick} className={`bg-primary font-karla text-white px-3 py-2 flex justify-center items-center gap-2 rounded-full ${styles}`}>{hasIcon && icon}{text}</button>
   )
 }
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-interface NoticeMedia {
+interface SyllabusMedia {
   id: number;
   attributes: {
     name: string;
@@ -25,34 +25,33 @@ interface NoticeMedia {
   };
 }
 
-interface Notice {
+interface SyllabusInterface {
   id: number;
   attributes: {
-    notice_name: string;
-    notice_date: string;
-    notice_media: {
-      data: NoticeMedia[];
+    syllabus_name: string;
+    syllabus_date: string;
+    syllabus_media: {
+      data: SyllabusMedia[];
     };
   };
 }
-
-const NoticeBoard = () => {
-  const [noticeData, setNoticeData] = useState<Notice[]>([]);
+const Syllabus = () => {
+    const [syllabusData, setSyllabusData] = useState<SyllabusInterface[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [pageSize] = useState(5);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchNotices = async () => {
+    const fetchSyllabus = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/notice-boards/?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/syllabus/?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
           }
         });
-        setNoticeData(response?.data?.data);
+        setSyllabusData(response?.data?.data);
         setTotalPages(response?.data?.meta?.pagination?.pageCount);
         setLoading(false);
       } catch (error) {
@@ -61,7 +60,7 @@ const NoticeBoard = () => {
       }
     };
 
-    fetchNotices();
+    fetchSyllabus();
   }, [currentPage, pageSize]);
 
   const handlePreviousPage = () => {
@@ -78,18 +77,18 @@ const NoticeBoard = () => {
 
   return (
     <>
-      <div className="flex flex-col text-center w-full mb-4">
-        <h1 className="sm:text-5xl text-4xl font-vidaloka font-semibold title-font my-4 text-gray-900">
-          Notice Board
+    <div className="flex flex-col text-center w-full mb-4">
+        <h1 className="sm:text-5xl text-4xl font-semibold title-font my-4 text-gray-900">
+          Syllabus
         </h1>
-        <p className="lg:w-2/3 mx-auto font-martel text-lg leading-relaxed">
+        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
           Stay updated with the latest announcements and events.
         </p>
-      </div>
-      <div className="container mx-auto p-6">
+    </div>
+    <div className="container mx-auto p-6">
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white">
-            <thead className="bg-gray-800 text-white font-martel rounded-md">
+            <thead className="bg-gray-800 text-white">
               <tr>
                 <th className="py-2 px-4 text-left w-2/4">Name</th>
                 <th className="py-2 px-4 text-left">Date</th>
@@ -113,12 +112,12 @@ const NoticeBoard = () => {
                   </tr>
                 ))
               ) : (
-                noticeData.map(notice => (
-                  <tr key={notice.id} className="border-b font-karla">
-                    <td className="py-2 px-4 text-left w-2/4">{notice?.attributes?.notice_name}</td>
-                    <td className="py-2 px-4 text-left">{new Date(notice?.attributes?.notice_date).toLocaleDateString()}</td>
+                syllabusData.map(syll => (
+                  <tr key={syll.id} className="border-b">
+                    <td className="py-2 px-4 text-left w-2/4">{syll?.attributes?.syllabus_name}</td>
+                    <td className="py-2 px-4 text-left">{new Date(syll?.attributes?.syllabus_date).toLocaleDateString()}</td>
                     <td className="py-2 px-4 text-left">
-                      {notice?.attributes?.notice_media?.data !== null && notice?.attributes?.notice_media?.data.map(media => (
+                      {syll?.attributes?.syllabus_media?.data !== null && syll?.attributes?.syllabus_media?.data.map(media => (
                         <a
                           key={media?.id}
                           href={`${media.attributes.formats?.large?.url || media.attributes.url}`}
@@ -136,7 +135,7 @@ const NoticeBoard = () => {
             </tbody>
           </table>
         </div>
-        <div className="flex justify-between items-center mt-4 font-karla">
+        <div className="flex justify-between items-center mt-4">
           <button
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
@@ -156,8 +155,8 @@ const NoticeBoard = () => {
           </button>
         </div>
       </div>
-    </>
-  );
-};
+      </>
+  )
+}
 
-export default NoticeBoard;
+export default Syllabus
