@@ -15,42 +15,73 @@ import "aos/dist/aos.css";
 
 const GalleryContent = () => {
   return (
-    <div className="w-[400px] bg-white rounded-lg p-6 shadow-xl flex justify-between items-center gap-4">
-      <div className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4">
-        <img src={facultyImg} className="w-32 h-32 rounded-lg" alt="" />
-        <h3 className="font-semibold">Our Faculty</h3>
-      </div>
-      <div className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4">
-        <img src={syllabusImg} className="w-32 h-32 rounded-lg" alt="" />
-        <h3 className="font-semibold">Syllabus</h3>
-      </div>
+    <div className="w-[450px] z-50 bg-white rounded-lg p-6 shadow-xl flex flex-col gap-4">
+      <Link
+        to="/gallery/images"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+      >
+        <span className="text-2xl">🖼️</span>
+        <div>
+          <h3 className="font-semibold">Image Gallery</h3>
+          <p className="text-sm">
+            Explore our vibrant school life through photos. View images of events, classrooms, sports activities, and more.
+          </p>
+        </div>
+      </Link>
+      <Link
+        to="gallery/videos"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+      >
+        <span className="text-2xl">🎥</span>
+        <div>
+          <h3 className="font-semibold">Video Gallery</h3>
+          <p className="text-sm">
+            Watch videos of school performances, educational content, and highlights from special events.
+          </p>
+        </div>
+      </Link>
     </div>
   );
 };
 
 const AcademicsContent = () => {
   return (
-    <div className="w-[550px] bg-white rounded-lg p-6 shadow-xl flex justify-between items-center gap-4">
+    <div className="w-[450px] z-10 bg-white rounded-lg p-6 shadow-xl flex flex-col gap-4">
       <Link
         to="/faculty"
-        className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
-        <img src={facultyImg} className="w-32 h-32 rounded-lg" alt="" />
-        <h3 className="font-semibold">Our Faculty</h3>
+        <img src={facultyImg} className="w-16 h-16 rounded-lg" alt="Faculty" />
+        <div>
+          <h3 className="font-semibold">Our Faculty</h3>
+          <p className="text-sm">
+            Meet our dedicated team of educators committed to nurturing young minds.
+          </p>
+        </div>
       </Link>
       <Link
         to="/syllabus"
-        className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
-        <img src={syllabusImg} className="w-32 h-32 rounded-lg" alt="" />
-        <h3 className="font-semibold">Syllabus</h3>
+        <img src={syllabusImg} className="w-16 h-16 rounded-lg" alt="Syllabus" />
+        <div>
+          <h3 className="font-semibold">Syllabus</h3>
+          <p className="text-sm">
+            Access our comprehensive curriculum and course outlines for all grades.
+          </p>
+        </div>
       </Link>
       <Link
-        to="noticeboard"
-        className="flex flex-col hover:underline hover:bg-secondary border-dashed border-2 border-secondary transition-colors hover:text-white rounded-xl cursor-pointer gap-3 p-4"
+        to="/noticeboard"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
-        <img src={noticeBoardImg} className="w-32 h-32 rounded-lg" alt="" />
-        <h3 className="font-semibold">Notice Board</h3>
+        <img src={noticeBoardImg} className="w-16 h-16 rounded-lg" alt="Notice Board" />
+        <div>
+          <h3 className="font-semibold">Notice Board</h3>
+          <p className="text-sm">
+            Stay updated with the latest announcements, events, and important information.
+          </p>
+        </div>
       </Link>
     </div>
   );

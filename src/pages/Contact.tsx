@@ -1,8 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { LuPhone } from 'react-icons/lu';
 import Button from '../components/Button';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    phone: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/contact-forms`,
+        { data: formData },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`,
+          },
+        }
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        setSubmitStatus('success');
+        setFormData({ firstName: '', phone: '', message: '' });
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
     <section className="text-gray-600 bg-background body-font relative pt-6">
@@ -34,46 +82,67 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="lg:w-1/3 md:w-1/2 bg-background flex flex-col md:ml-auto w-full mt-8 md:mt-0">
-          <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 text-sm font-karla text-gray-600">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="w-full bg-neutral-50 font-karla rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
+            <form onSubmit={handleSubmit}>
+              <div className="relative mb-4">
+                <label htmlFor="firstName" className="leading-7 text-sm font-karla text-gray-600">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  className="w-full bg-neutral-50 font-karla rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  required
+                />
+              </div>
+              <div className="relative mb-4">
+                <label htmlFor="phone" className="leading-7 text-sm font-karla text-gray-600">
+                  Phone No.
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full font-karla bg-neutral-50 rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  required
+                />
+              </div>
+              <div className="relative mb-4">
+                <label htmlFor="message" className="leading-7 text-sm font-karla text-gray-600">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  className="w-full font-karla bg-neutral-50 rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  required
+                ></textarea>
+              </div>
+              <Button 
+                text={isSubmitting ? 'Submitting...' : 'Contact Us'} 
+                key={'contact_us'} 
+                icon={<LuPhone />} 
+                hasIcon={false} 
+                onClick={() => {}} 
+                type="submit"
+                disabled={isSubmitting}
+              />
+            </form>
+            {submitStatus === 'success' && (
+              <p className="mt-4 text-green-600 font-karla">Form submitted successfully!</p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="mt-4 text-red-600 font-karla">Error submitting form. Please try again.</p>
+            )}
           </div>
-
-          <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 text-sm font-karla text-gray-600">
-              Phone No.
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              className="w-full font-karla bg-neutral-50 rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-
-          <div className="relative mb-4">
-            <label htmlFor="message" className="leading-7 text-sm font-karla text-gray-600">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              className="w-full font-karla bg-neutral-50 rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-            ></textarea>
-          </div>
-
-          <Button text='Contact Us' key={'contact_us'} icon={<LuPhone />} hasIcon={false} onClick={()=> console.log("clicked")} />
-
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };
