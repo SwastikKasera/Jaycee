@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface FacultyDataFormat {
   facultyName: string;
@@ -19,6 +21,7 @@ interface FacultyDataFormat {
 
 const Faculty = () => {
   const [facultyData, setFacultyData] = useState<FacultyDataFormat[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -63,6 +66,8 @@ const Faculty = () => {
         setFacultyData(data);
       } catch (error) {
         console.error("Error fetching faculty data:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -70,7 +75,7 @@ const Faculty = () => {
   }, []);
 
   return (
-    <div className="container px-5 py-24 mx-auto">
+    <div className="container px-5 py-24 w-full mx-auto bg-background">
       <div className="flex flex-col text-center w-full mb-20">
         <h1 className="sm:text-5xl md:6xl font-vidaloka text-4xl font-semibold title-font mb-4 text-gray-900">
           Our Faculty
@@ -82,36 +87,57 @@ const Faculty = () => {
       <section className="text-gray-600 body-font">
         <div className="container px-5 mx-auto">
           <div className="flex flex-wrap -m-4">
-            {facultyData.map((faculty, index) => (
-              <>
-              
-              <div key={index} className="p-4 md:w-1/2 w-full">
-                <div className="h-full bg-gray-100 p-6 rounded">
-                  <div className="flex justify-between items-start w-full">
-                    <div className="flex justify-start items-start">
-                      <img
-                        alt="faculty"
-                        src={`${faculty.facultyPhoto.medium}` || "https://dummyimage.com/106x106"}
-                        className="w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"
-                      />
-                      <span className="flex-grow flex flex-col pl-4">
-                        <span className="title-font font-semibold text-black text-lg font-karla">
-                          {faculty.facultyName}
+            {loading ? (
+              Array.from({ length: 6 }).map((_, index) => (
+                <div key={index} className="p-4 md:w-1/2 w-full">
+                  <div className="h-full bg-neutral-50 p-6 rounded">
+                    <div className="flex justify-between items-start w-full">
+                      <div className="flex justify-start items-start">
+                        <Skeleton circle={true} height={64} width={64} />
+                        <span className="flex-grow flex flex-col pl-4">
+                          <Skeleton width={120} height={24} />
+                          <Skeleton width={80} height={20} />
                         </span>
-                        <span className="text-secondary text-sm font-martel">{faculty.facultyQualification}</span>
-                      </span>
+                      </div>
+                      <div className="flex justify-center items-center gap-2">
+                        <Skeleton width={50} height={24} />
+                      </div>
                     </div>
-                    <div className="flex justify-center items-center gap-2">
-                      <p className="bg-primary w-fit px-2 py-1 rounded-full text-background font-karla">{faculty.facultyPosition}</p>
+                    <div>
+                      <Skeleton count={3} />
                     </div>
-                  </div>
-                  <div>
-                    <p className="pt-2 font-karla">{faculty.facultyBio}</p>
                   </div>
                 </div>
-              </div>
-              </>
-            ))}
+              ))
+            ) : (
+              facultyData.map((faculty, index) => (
+                <div key={index} className="p-4 md:w-1/2 w-full">
+                  <div className="h-full bg-neutral-50 p-6 rounded">
+                    <div className="flex justify-between items-start w-full">
+                      <div className="flex justify-start items-start">
+                        <img
+                          alt="faculty"
+                          src={`${faculty.facultyPhoto.medium}` || "https://dummyimage.com/106x106"}
+                          className="w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"
+                        />
+                        <span className="flex-grow flex flex-col pl-4">
+                          <span className="title-font font-semibold text-black text-lg font-karla">
+                            {faculty.facultyName}
+                          </span>
+                          <span className="text-secondary text-sm font-martel">{faculty.facultyQualification}</span>
+                        </span>
+                      </div>
+                      <div className="flex justify-center items-center gap-2">
+                        <p className="bg-primary w-fit px-2 py-1 rounded-full text-background font-karla">{faculty.facultyPosition}</p>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="pt-2 font-karla">{faculty.facultyBio}</p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>

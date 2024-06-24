@@ -12,6 +12,7 @@ import Admission from "./pages/Admission";
 import AnimatedNavbar from "./components/AnimatedNavbar";
 import Syllabus from "./pages/Syllabus";
 import Cursor from "./StickyCursor/StickyCursor";
+import About from "./pages/About";
 
 function App() {
   const stickyRef = useRef<HTMLDivElement>(null);
@@ -21,7 +22,7 @@ function App() {
       <Cursor />
       <BrowserRouter>
         <AnimatedNavbar />
-        <div className="App overflow-x-hidden" ref={stickyRef}>
+        <div className="App overflow-x-hidden bg-background" ref={stickyRef}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
@@ -30,6 +31,7 @@ function App() {
             <Route path="/noticeboard" element={<NoticeBoard />} />
             <Route path="/admission" element={<Admission />} />
             <Route path="/syllabus" element={<Syllabus />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </div>
         <Footer />

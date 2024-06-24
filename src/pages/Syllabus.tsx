@@ -76,7 +76,7 @@ const Syllabus = () => {
   };
 
   return (
-    <>
+    <div className='bg-background'>
     <div className="flex flex-col text-center w-full mb-4">
         <h1 className="sm:text-5xl text-4xl font-semibold title-font my-4 text-gray-900">
           Syllabus
@@ -155,7 +155,7 @@ const Syllabus = () => {
           </button>
         </div>
       </div>
-      </>
+      </div>
   )
 }
 

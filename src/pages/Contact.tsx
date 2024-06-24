@@ -5,8 +5,8 @@ import Button from '../components/Button';
 const Contact: React.FC = () => {
   return (
     <>
-    <section className="text-gray-600 body-font relative">
-      <h2 className='text-4xl text-secondary font-semibold text-center text-5xl mt-4 font-vidaloka'>Contact Us</h2>
+    <section className="text-gray-600 bg-background body-font relative pt-6">
+      <h2 className='text-secondary font-semibold text-center text-5xl font-vidaloka'>Contact Us</h2>
       <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
         <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
         <iframe
@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14446.432143580563!2d82.5599653!3d25.1489392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398fc18a2bdbcb0d%3A0xc951eacdb57569b8!2sjaycee%20bal%20mandir!5e0!3m2!1sen!2sin!4v1714237408596!5m2!1sen!2sin&zoom=15"
         ></iframe>
 
-          <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+          <div className="bg-neutral-50 relative flex flex-wrap py-6 rounded shadow-md">
             <div className="lg:w-1/2 px-6">
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs font-martel">ADDRESS</h2>
               <p className="mt-1 font-karla">Near Kali Mandir, Mussafarganj, Mirzapur, Uttar Pradesh 231001</p>
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full mt-8 md:mt-0">
+        <div className="lg:w-1/3 md:w-1/2 bg-background flex flex-col md:ml-auto w-full mt-8 md:mt-0">
           <div className="relative mb-4">
             <label htmlFor="name" className="leading-7 text-sm font-karla text-gray-600">
               Name
@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
               type="text"
               id="name"
               name="name"
-              className="w-full bg-white font-karla rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-neutral-50 font-karla rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
 
@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
               type="tel"
               id="phone"
               name="phone"
-              className="w-full font-karla bg-white rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full font-karla bg-neutral-50 rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
 
@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
             <textarea
               id="message"
               name="message"
-              className="w-full font-karla bg-white rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              className="w-full font-karla bg-neutral-50 rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
 
