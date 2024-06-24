@@ -1081,6 +1081,40 @@ export interface ApiSyllabusSyllabus extends Schema.CollectionType {
   };
 }
 
+export interface ApiVideoGalleryVideoGallery extends Schema.CollectionType {
+  collectionName: 'video_galleries';
+  info: {
+    singularName: 'video-gallery';
+    pluralName: 'video-galleries';
+    displayName: 'Video Gallery';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    videoName: Attribute.String & Attribute.Required;
+    videoLink: Attribute.String & Attribute.Required;
+    videoDescrption: Attribute.Text;
+    videoDate: Attribute.Date & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::video-gallery.video-gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::video-gallery.video-gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1107,6 +1141,7 @@ declare module '@strapi/types' {
       'api::notice-board.notice-board': ApiNoticeBoardNoticeBoard;
       'api::student-achievement.student-achievement': ApiStudentAchievementStudentAchievement;
       'api::syllabus.syllabus': ApiSyllabusSyllabus;
+      'api::video-gallery.video-gallery': ApiVideoGalleryVideoGallery;
     }
   }
 }
