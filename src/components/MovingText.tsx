@@ -15,7 +15,7 @@ const MovingText = () => {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 10,
+            duration: 20,
             ease: "linear",
           },
         }}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import { LuPhone } from "react-icons/lu";
 import AnimatedDropdown from "./AnimatedDropdown";
 import facultyImg from "../assets/faculty.png";
@@ -112,10 +112,12 @@ const AnimatedNavbar = () => {
   return (
     <>
       <div className="bg-secondary flex w-full justify-between items-center py-1 px-2">
-        <Link to="/" className="w-fit flex justify-start items-center">
-          <img src={logo} alt="" />
-          <h1 className="text-white font-karla text-xl">
-            Jaycee Bal <p>Mandir School</p>
+        <Link to="/" className="w-fit flex justify-start items-center gap-2">
+          <img src={logo} className="w-14" alt="" />
+          <h1 className="text-white font-karla text-center text-xl">
+            Jaycee Bal Mandir
+            <p className="text-sm">(Montessori)</p>
+            <p className="text-accent text-sm">Junior High School</p>
           </h1>
         </Link>
         <div className=" w-fit hidden lg:flex justify-center items-center gap-2 text-md font-karla">

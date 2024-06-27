@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { CiTwitter } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
@@ -79,7 +79,7 @@ const Footer = () => {
               <div className="flex justify-start items-center gap-2">
                 <p className="flex justify-center items-center">
                   <FaPhoneAlt className="inline-block mr-2 text-accent w-5" />
-                  +91 94156 79969
+                  05442-220-531
                 </p>
               </div>
               <div className="flex justify-start items-start gap-2">

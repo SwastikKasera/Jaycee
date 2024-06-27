@@ -39,6 +39,8 @@ const StudentAchievement = () => {
         studentMarks: item.attributes.studentMarks,
         studentPhotoUrl:item.attributes.studentPhoto.data.attributes.formats.small.url,
       }));
+      console.log("achievements", achievements);
+      
       setStudentData(achievements);
       setLoading(false);
     };

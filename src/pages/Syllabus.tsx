@@ -46,7 +46,7 @@ const Syllabus = () => {
     const fetchSyllabus = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/syllabus/?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/syllabi/?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
           }

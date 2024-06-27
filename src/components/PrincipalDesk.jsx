@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button";
 import { LuLink2 } from "react-icons/lu";
 import principal from "../assets/principal.jpg";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import Paragraph from "./TextScroll/Character";
 import sign from "../assets/Asset1.png";
 

@@ -1,7 +1,7 @@
 import { LuPhone } from "react-icons/lu";
 import Button from "./Button";
 import React, { useState } from "react";
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.svg'
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 const Navbar = () => {

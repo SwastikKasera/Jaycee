@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
               <p className="text-primary leading-relaxed font-karla">contact@jaycee.com</p>
 
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs font-martel mt-4">PHONE</h2>
-              <p className="leading-relaxed font-karla">+91 9415679969</p>
+              <p className="leading-relaxed font-karla">05442-220-531</p>
             </div>
           </div>
         </div>
