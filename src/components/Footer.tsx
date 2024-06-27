@@ -114,7 +114,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div onClick={handleCall} className="text-white bg-blue-800 p-2 flex justify-between text-xs">
+      <div onClick={handleCall} className="text-white bg-blue-800 p-2 flex justify-center cursor-pointer hover:underline text-xs">
         <p>Designed and Developed by Swastik Kasera - <strong>Super Computer and Networks</strong></p>
         <p></p>
       </div>
