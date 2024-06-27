@@ -125,7 +125,7 @@ const AnimatedNavbar = () => {
             dropdownContent={EmptyComponent}
           />
           <AnimatedDropdown
-            link="/gallery"
+            link="#"
             text={
               <>
                 Gallery <IoChevronDown className="inline-block" />

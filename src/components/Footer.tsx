@@ -15,8 +15,8 @@ const Footer = () => {
       text: "Noticeboard",
     },
     {
-      link: "/acedemics",
-      text: "Academics",
+      link: "https://jayceeapi.onrender.com/admin",
+      text: "Admin",
     },
     {
       link: "/gallery",

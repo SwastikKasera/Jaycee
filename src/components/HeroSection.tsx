@@ -4,6 +4,7 @@ import { LuPhone } from "react-icons/lu";
 import { IoSparklesSharp } from "react-icons/io5";
 import { BsArrowRight } from "react-icons/bs";
 import hero_bkg from "../assets/hero_bkg2.jpg";
+import video from "../assets/school_bkg_video.mp4";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 
@@ -12,16 +13,19 @@ const HeroSection = () => {
     AOS.init();
   }, []);
 
-  const sectionStyle = {
-    backgroundImage: `url(${hero_bkg})`,
-  };
-
   return (
-    <section
-      className="text-gray-600 bg-cover bg-center bg-no-repeat flex items-center justify-center"
-      style={sectionStyle}
-    >
-      <div className="w-full min-h-[90vh] bg-[#0000003d] flex px-5 py-24 flex-col items-center">
+    <section className="relative text-gray-600 flex items-center justify-center overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute z-0 w-full h-full object-cover"
+      >
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div className="relative z-10 w-full min-h-[90vh] bg-[#0000003d] flex px-5 py-24 flex-col items-center">
         <div className="lg:flex-grow md:max-w-2/3 md:w-2/3 flex flex-col mb-16 md:mb-0 items-center text-center">
           <h1 data-aos="fade-up" className="title-font font-vidaloka sm:text-5xl text-5xl mb-4 font-medium text-white">
             Discover, Learn, Grow: Where Every Moment is a Lesson
