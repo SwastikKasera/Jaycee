@@ -7,12 +7,16 @@ import hero_bkg from "../assets/hero_bkg2.jpg";
 import video from "../assets/school_bkg_video.mp4";
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   useEffect(() => {
     AOS.init();
   }, []);
-
+  const handleCall = () => {
+    window.location.href = `tel:+919415679969`;
+    
+  };
   return (
     <section className="relative text-gray-600 flex items-center justify-center overflow-hidden">
       <video
@@ -39,11 +43,11 @@ const HeroSection = () => {
               key={"admission_open"}
               icon={<LuPhone />}
               hasIcon={true}
-              onClick={() => console.log("clicked")}
+              onClick={handleCall}
             />
             <div className="flex justify-start text-white items-center gap-1">
               <IoSparklesSharp />
-              <p>Check Details</p>
+              <Link to="/admission">Check Details</Link>
               <BsArrowRight />
             </div>
           </div>

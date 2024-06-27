@@ -4,6 +4,10 @@ import { LuPhone } from "react-icons/lu";
 import AdmissionOpenImg from "../assets/Admission_Open.png";
 
 const Admission = () => {
+  const handleCall = () => {
+    window.location.href = `tel:+919415679969`;
+    
+  };
   return (
     <>
       <section className="text-gray-600 body-font bg-background">
@@ -54,7 +58,7 @@ const Admission = () => {
               </ul>
             </div>
             <div className="flex md:justify-start justify-center w-full">
-              <Button hasIcon={true} icon={<LuPhone />} text="Call Now" />
+              <Button hasIcon={true} icon={<LuPhone />} onClick={handleCall} text="Call Now" />
             </div>
           </div>
         </div>
