@@ -2,26 +2,29 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Link } from 'react-router-dom';
 
 interface SyllabusMedia {
   id: number;
   attributes: {
     name: string;
     url: string;
-    formats?: {
-      small?: {
+    ext: string;
+    mime: string;
+    formats: {
+      large?: {
         url: string;
       };
       medium?: {
         url: string;
       };
-      large?: {
+      small?: {
         url: string;
       };
       thumbnail?: {
         url: string;
       };
-    };
+    } | null;
   };
 }
 
@@ -31,31 +34,44 @@ interface SyllabusInterface {
     syllabus_name: string;
     syllabus_date: string;
     syllabus_media: {
-      data: SyllabusMedia[];
+      data: SyllabusMedia;
     };
   };
 }
+
+interface PaginationMeta {
+  pagination: {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number;
+  };
+}
+
 const Syllabus = () => {
-    const [syllabusData, setSyllabusData] = useState<SyllabusInterface[]>([]);
+  const [syllabusData, setSyllabusData] = useState<SyllabusInterface[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [pageSize] = useState(5);
+  const [pageSize] = useState(25);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchSyllabus = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/syllabi/?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
+        const response = await axios.get<{ data: SyllabusInterface[], meta: PaginationMeta }>(
+          `${process.env.REACT_APP_API_URL}/api/syllabi?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`,
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
+            }
           }
-        });
-        setSyllabusData(response?.data?.data);
-        setTotalPages(response?.data?.meta?.pagination?.pageCount);
+        );
+        setSyllabusData(response.data.data);
+        setTotalPages(response.data.meta.pagination.pageCount);
         setLoading(false);
       } catch (error) {
-        console.log("Failed to load notice board");
+        console.log("Failed to load syllabus data");
         setLoading(false);
       }
     };
@@ -77,15 +93,15 @@ const Syllabus = () => {
 
   return (
     <div className='bg-background'>
-    <div className="flex flex-col text-center w-full mb-4">
+      <div className="flex flex-col text-center w-full mb-4">
         <h1 className="sm:text-5xl text-4xl font-semibold title-font my-4 text-gray-900">
           Syllabus
         </h1>
         <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-          Stay updated with the latest announcements and events.
+          Stay updated with the latest syllabi.
         </p>
-    </div>
-    <div className="container mx-auto p-6">
+      </div>
+      <div className="container mx-auto p-6">
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white">
             <thead className="bg-gray-800 text-white">
@@ -97,8 +113,7 @@ const Syllabus = () => {
             </thead>
             <tbody>
               {loading ? (
-                // Render skeleton loaders
-                Array.from({ length: pageSize }).map((_, index) => (
+                Array.from({ length: 5 }).map((_, index) => (
                   <tr key={index} className="border-b">
                     <td className="py-2 px-4 text-left w-2/4">
                       <Skeleton />
@@ -114,20 +129,19 @@ const Syllabus = () => {
               ) : (
                 syllabusData.map(syll => (
                   <tr key={syll.id} className="border-b">
-                    <td className="py-2 px-4 text-left w-2/4">{syll?.attributes?.syllabus_name}</td>
-                    <td className="py-2 px-4 text-left">{new Date(syll?.attributes?.syllabus_date).toLocaleDateString()}</td>
+                    <td className="py-2 px-4 text-left w-2/4">{syll.attributes.syllabus_name}</td>
+                    <td className="py-2 px-4 text-left">{new Date(syll.attributes.syllabus_date).toLocaleDateString()}</td>
                     <td className="py-2 px-4 text-left">
-                      {syll?.attributes?.syllabus_media?.data !== null && syll?.attributes?.syllabus_media?.data.map(media => (
-                        <a
-                          key={media?.id}
-                          href={`${media.attributes.formats?.large?.url || media.attributes.url}`}
+                      {syll.attributes.syllabus_media.data && (
+                        <Link
+                          to={syll.attributes.syllabus_media.data.attributes.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-500 hover:underline block"
                         >
-                          {media?.attributes?.name}
-                        </a>
-                      ))}
+                          {syll.attributes.syllabus_media.data.attributes.name}
+                        </Link>
+                      )}
                     </td>
                   </tr>
                 ))
@@ -155,8 +169,8 @@ const Syllabus = () => {
           </button>
         </div>
       </div>
-      </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Syllabus
+export default Syllabus;

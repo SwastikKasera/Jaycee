@@ -1,14 +1,8 @@
 import React from "react";
-import Button from "./Button";
-import { LuLink2 } from "react-icons/lu";
 import principal from "../assets/principal.jpg";
-import logo from "../assets/logo.svg";
-import Paragraph from "./TextScroll/Character";
 import sign from "../assets/Asset1.png";
 
 const PrincipalDesk = () => {
-  const paragraph = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, ipsam adipisci voluptatem rerum harum consequuntur nihil ipsum sed quis necessitatibus excepturi, possimus suscipit tenetur facilis animi ullam iste similique";
-
   return (
     <>
       <section className="bg-secondary w-full relative body-font flex flex-col md:flex-row p-8 gap-10 justify-center items-start">
@@ -26,8 +20,7 @@ const PrincipalDesk = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quia vitae perspiciatis hic mollitia nostrum quisquam praesentium aliquam? Eaque, maxime iusto? Recusandae debitis cupiditate consequuntur voluptates itaque dolores animi saepe. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, iste. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint consequuntur consectetur optio cupiditate iste assumenda exercitationem explicabo ipsum fugit facere. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit sequi placeat aperiam autem, obcaecati consequuntur explicabo eveniet magni voluptas tempora.
             </p>
           </div>
-          <div className="flex justify-between items-center mt-4">
-            <img data-aos="fade-up" className="w-32" src={logo} alt="Logo" />
+          <div className="flex justify-end items-center mt-4">
             <div data-aos="fade-up" data-aos-delay="200" className="flex flex-col justify-center items-center gap-4 p-2">
               <p className="text-white text-xl italic font-martel">- by Swastik Kasera</p>
               <img src={sign} className="w-24" alt="Signature" />

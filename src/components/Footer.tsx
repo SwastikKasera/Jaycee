@@ -19,7 +19,7 @@ const Footer = () => {
       text: "Admin",
     },
     {
-      link: "/gallery",
+      link: "/gallery/images",
       text: "Gallery",
     },
     {
@@ -31,15 +31,29 @@ const Footer = () => {
       text: "About",
     },
   ];
+  const handleCall = () => {
+    window.location.href = "tel:+91 9839059374";
+  }  
   return (
     <footer className="bg-secondary text-background body-font font-karla">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-          <Link to="/" className="flex title-font font-medium items-center md:justify-start justify-center ">
-            <img src={logo} className="w-16" alt="" />
-            <span className="ml-3 text-xl">Jaycee Bal Mandir School</span>
-          </Link>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+        <div className="w-full sm:w-96 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+          <div>
+            <Link to="/" className="w-full flex justify-start items-start gap-3 mb-2">
+              <div className="flex flex-col justify-center items-center gap-2">
+                <img src={logo} className="w-20 sm:w-36" alt="" />
+                <p className="text-neutral-50 text-xs sm:text-base">ESTD 1964</p>
+              </div>
+              <div className="flex flex-col justify-start">
+                <h1 className="text-white font-karla text-left text-3xl">
+                  Jaycee Bal Mandir
+                  <p className="text-base">(Montessori) <span className="text-accent text-base">Junior High School</span></p>
+                </h1>
+                <h2 className="text-sm mt-3">Under the management of Mirzapur Junior Chamber</h2>
+              </div>
+            </Link>
+          </div>
+          <span className="inline-flex sm:ml-auto sm:mt-2 mt-4 justify-center sm:justify-start">
             <Link to="" className="">
               <TbBrandYoutube size={26} />
             </Link>
@@ -93,12 +107,16 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-accent flex justify-center items-center">
-        <div className="container py-4 px-5 flex flex-wrap justify-center items-center">
+        <div className="container py-2 px-5 flex flex-col flex-wrap gap-1 justify-center items-center">
           <p className="text-secondary font-bold text-sm text-center sm:text-left">
             Copyright © 2024 Jaycee Bal Mandir School, Mirzapur. All Right
             Reserved
           </p>
         </div>
+      </div>
+      <div onClick={handleCall} className="text-white bg-blue-800 p-2 flex justify-between text-xs">
+        <p>Designed and Developed by Swastik Kasera - <strong>Super Computer and Networks</strong></p>
+        <p></p>
       </div>
     </footer>
   );
