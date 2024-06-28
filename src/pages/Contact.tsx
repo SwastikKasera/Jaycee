@@ -65,10 +65,11 @@ const Contact: React.FC = () => {
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14446.432143580563!2d82.5599653!3d25.1489392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398fc18a2bdbcb0d%3A0xc951eacdb57569b8!2sjaycee%20bal%20mandir!5e0!3m2!1sen!2sin!4v1714237408596!5m2!1sen!2sin&zoom=15"
         ></iframe>
 
-          <div className="bg-neutral-50 relative flex flex-wrap py-6 rounded shadow-md">
+          <div className="bg-neutral-50 w-full relative flex flex-wrap py-6 rounded shadow-md">
             <div className="lg:w-1/2 px-6">
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs font-martel">ADDRESS</h2>
-              <p className="mt-1 font-karla">Near Kali Mandir, Mussafarganj, Mirzapur, Uttar Pradesh 231001</p>
+              <p className="mt-1 font-karla">Mussafarganj, Mirzapur - 231001</p>
+              <p>Uttar Pradesh</p>
             </div>
 
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -76,7 +77,7 @@ const Contact: React.FC = () => {
               <p className="text-primary leading-relaxed font-karla">contact@jaycee.com</p>
 
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs font-martel mt-4">PHONE</h2>
-              <p className="leading-relaxed font-karla">05442-220-531</p>
+              <p className="leading-relaxed font-karla">05442-220-531, +91 94156 79969</p>
             </div>
           </div>
         </div>
@@ -124,7 +125,8 @@ const Contact: React.FC = () => {
                   required
                 ></textarea>
               </div>
-              <Button 
+              <Button
+                styles='w-full hover:bg-blue-900 hover:transition-colors'
                 text={isSubmitting ? 'Submitting...' : 'Contact Us'} 
                 key={'contact_us'} 
                 icon={<LuPhone />} 

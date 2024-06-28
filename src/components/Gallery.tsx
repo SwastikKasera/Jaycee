@@ -98,7 +98,7 @@ const GalleryComponent: React.FC = () => {
                     data-aos="fade-down"
                     data-aos-duration="1000"
                     key={image.id} 
-                    className="relative overflow-hidden aspect-w-16 aspect-h-9 rounded-lg shadow-md"
+                    className="relative overflow-hidden aspect-w-16 aspect-h-9 rounded-2xl rounded-tl-none rounded-br-none shadow-md"
                 >
                     <img
                         className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"

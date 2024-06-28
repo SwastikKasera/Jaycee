@@ -25,7 +25,7 @@ const MovingText = () => {
           <React.Fragment key={index}>
             <span className="flex items-center">
               <GoDotFill className="text-white mx-2" size={24}/>
-              <span className="relative font-bold uppercase text-3xl tracking-widest px-4">
+              <span className="relative font-bold uppercase text-xl tracking-widest px-4">
                 {word}
               </span>
               {/* <GoDotFill className="text-white mx-2" /> */}
