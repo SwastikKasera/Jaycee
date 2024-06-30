@@ -44,6 +44,50 @@ const GalleryContent = () => {
   );
 };
 
+const AboutContent = () => {
+  return (
+    <div className="w-[450px] z-50 bg-white rounded-lg p-6 shadow-xl flex flex-col gap-4">
+      <Link
+        to="/about/school"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+      >
+        <span className="text-2xl">🏫</span>
+        <div>
+          <h3 className="font-semibold">Our School</h3>
+          <p className="text-sm">
+            Discover the history, mission, and values that define our institution.
+          </p>
+        </div>
+      </Link>
+      <Link
+        to="/about/founder"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+      >
+        <span className="text-2xl">👩‍🏫</span>
+        <div>
+          <h3 className="font-semibold">Our Founder</h3>
+          <p className="text-sm">
+            Learn about the visionary behind our school's establishment.
+          </p>
+        </div>
+      </Link>
+      <Link
+        to="/about/team"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+      >
+        <span className="text-2xl">👨‍🏫</span>
+        <div>
+          <h3 className="font-semibold">Our Members</h3>
+          <p className="text-sm">
+            Meet the dedicated members who drive our school's success.
+          </p>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
+
 const AcademicsContent = () => {
   return (
     <div className="w-[450px] z-10 bg-white rounded-lg p-6 shadow-xl flex flex-col gap-4">
@@ -101,26 +145,27 @@ const AnimatedNavbar = () => {
     localStorage.setItem("isSidebarOpen", isSidebarOpen.toString());
     localStorage.setItem("isActive", active.toString());
   }, [isSidebarOpen, active]);
+
   useEffect(() => {
     AOS.init();
   }, []);
 
   const handleCall = () => {
     window.location.href = `tel:+919415679969`;
-    
   };
+
   return (
     <>
       <div className="bg-secondary flex w-full justify-between items-center py-1 px-2">
         <Link to="/" className="w-fit flex justify-start items-center gap-2">
           <img src={logo} className="w-14" alt="" />
-          <h1 className="text-white font-karla text-center text-xl">
+          <h1 className="text-white font-karla text-center md:text-xl text-base">
             Jaycee Bal Mandir
             <p className="text-sm">(Montessori)</p>
             <p className="text-accent text-sm">Junior High School</p>
           </h1>
         </Link>
-        <div className=" w-fit hidden lg:flex justify-center items-center gap-2 text-md font-karla">
+        <div className="w-fit hidden lg:flex justify-center items-center gap-2 text-md font-karla">
           <AnimatedDropdown
             link="/"
             text="Home"
@@ -151,8 +196,8 @@ const AnimatedNavbar = () => {
           />
           <AnimatedDropdown
             link="/about"
-            text="About"
-            dropdownContent={EmptyComponent}
+            text={<>About <IoChevronDown className="inline-block" /></>}
+            dropdownContent={AboutContent}
           />
           <AnimatedDropdown
             link="/contact"
@@ -166,7 +211,7 @@ const AnimatedNavbar = () => {
           data-aos-delay="300"
         >
           <Button
-          onClick={handleCall}
+            onClick={handleCall}
             hasIcon={true}
             icon={<LuPhone />}
             text="Enquire Now"

@@ -11,18 +11,12 @@ import AnimatedNavbar from "./components/AnimatedNavbar";
 import Syllabus from "./pages/Syllabus";
 import Cursor from "./StickyCursor/StickyCursor";
 import About from "./pages/About";
-import img1 from "./assets/Asset1.png"
-import img2 from "./assets/hero_background.png"
 import VideoGallery from "./pages/VideoGallery";
 import ImageGallery from "./pages/ImageGallery";
+import Founders from "./pages/Founders";
 
 function App() {
   const stickyRef = useRef<HTMLDivElement>(null);
-  const items = [
-    { id: '1', imageUrl: img1, width: 300, height: 400 },
-    { id: '2', imageUrl: img2, width: 400, height: 300 },
-    // Add more items as needed
-  ];
   return (
     <div className="relative">
       <Cursor />
@@ -38,7 +32,8 @@ function App() {
             <Route path="/noticeboard" element={<NoticeBoard />} />
             <Route path="/admission" element={<Admission />} />
             <Route path="/syllabus" element={<Syllabus />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about/school" element={<About />} />
+            <Route path="/about/founder" element={<Founders />} />
           </Routes>
         </div>
         <Footer />

@@ -8,6 +8,7 @@ import { TbBrandYoutube } from "react-icons/tb";
 import { MdMailOutline } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+import jcilogo from "../assets/jci.png"
 const Footer = () => {
   const links = [
     {
@@ -71,9 +72,9 @@ const Footer = () => {
             </div>
             <div className="flex mt-2 gap-2 justify-center items-center">
               <div className="w-full flex justify-start items-center gap-2">
-                <img src={logo} className="w-14" alt="" />
-                <h1 className="text-white font-karla text-center text-xl">
-                  Jaycee Kanya Inter College
+                <img src={jcilogo} className="w-16" alt="" />
+                <h1 className="text-white font-karla text-center text-lg">
+                  Raja Shree Nivasi Prasad Singh J.C. Kanya Inter College
                 </h1>
               </div>
               <div className="w-full flex justify-start items-center gap-2">
