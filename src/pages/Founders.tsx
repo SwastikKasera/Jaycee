@@ -13,6 +13,7 @@ const Founders = () => {
                 loading="lazy"
                 width=""
                 height=""
+                className="shadow-lg shadow-black rounded-xl"
               />
             </div>
             <div className="md:7/12 lg:w-6/12">

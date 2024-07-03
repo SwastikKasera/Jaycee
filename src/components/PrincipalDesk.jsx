@@ -1,8 +1,13 @@
 import React from "react";
 import principal from "../assets/principal.jpg";
 import sign from "../assets/Asset1.png";
+import { LuExternalLink } from "react-icons/lu";
+import Button from "./Button";
 
 const PrincipalDesk = () => {
+  const hanldeClick = () => {
+    window.location.href = "https://res.cloudinary.com/dxlqy4p04/image/upload/v1720010856/Jaycee_Principal_List_9ff7648bea.pdf";
+  };
   return (
     <>
       <section className="bg-secondary w-full relative body-font flex flex-col md:flex-row p-8 gap-10 justify-center items-start">
@@ -20,7 +25,8 @@ const PrincipalDesk = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quia vitae perspiciatis hic mollitia nostrum quisquam praesentium aliquam? Eaque, maxime iusto? Recusandae debitis cupiditate consequuntur voluptates itaque dolores animi saepe. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, iste. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint consequuntur consectetur optio cupiditate iste assumenda exercitationem explicabo ipsum fugit facere. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit sequi placeat aperiam autem, obcaecati consequuntur explicabo eveniet magni voluptas tempora.
             </p>
           </div>
-          <div className="flex justify-end items-center mt-4">
+          <div className="flex justify-between items-start mt-4">
+            <Button text="View" onClick={hanldeClick} hasIcon={true} icon={<LuExternalLink />} styles="mt-4 w-1/4"/>
             <div data-aos="fade-up" data-aos-delay="200" className="flex flex-col justify-center items-center gap-4 p-2">
               <p className="text-white text-xl italic font-martel">- by Swastik Kasera</p>
               <img src={sign} className="w-24" alt="Signature" />

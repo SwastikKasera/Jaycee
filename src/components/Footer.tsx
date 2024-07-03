@@ -124,7 +124,7 @@ const Footer = () => {
               </div>
             </nav>
             <span className="inline-flex sm:mt-2 mt-4 justify-center sm:justify-start">
-              <Link to="" className="">
+              <Link to="https://www.youtube.com/@jayceebalmandirmusaffargan6756" className="">
                 <TbBrandYoutube size={26} />
               </Link>
               <Link to="" className="ml-3 ">

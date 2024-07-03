@@ -14,6 +14,7 @@ import About from "./pages/About";
 import VideoGallery from "./pages/VideoGallery";
 import ImageGallery from "./pages/ImageGallery";
 import Founders from "./pages/Founders";
+import Members from "./pages/Members";
 
 function App() {
   const stickyRef = useRef<HTMLDivElement>(null);
@@ -34,6 +35,7 @@ function App() {
             <Route path="/syllabus" element={<Syllabus />} />
             <Route path="/about/school" element={<About />} />
             <Route path="/about/founder" element={<Founders />} />
+            <Route path="/about/members" element={<Members />} />
           </Routes>
         </div>
         <Footer />

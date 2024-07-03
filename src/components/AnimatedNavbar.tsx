@@ -72,7 +72,7 @@ const AboutContent = () => {
         </div>
       </Link>
       <Link
-        to="/about/team"
+        to="/about/members"
         className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">👨‍🏫</span>
@@ -195,7 +195,7 @@ const AnimatedNavbar = () => {
             dropdownContent={EmptyComponent}
           />
           <AnimatedDropdown
-            link="/about"
+            link="#"
             text={<>About <IoChevronDown className="inline-block" /></>}
             dropdownContent={AboutContent}
           />
