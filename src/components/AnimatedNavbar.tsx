@@ -4,9 +4,6 @@ import Button from "./Button";
 import logo from "../assets/logo.svg";
 import { LuPhone } from "react-icons/lu";
 import AnimatedDropdown from "./AnimatedDropdown";
-import facultyImg from "../assets/faculty.png";
-import noticeBoardImg from "../assets/noticeBoard.jpg";
-import syllabusImg from "../assets/classSyllabus.jpg";
 import { IoChevronDown } from "react-icons/io5";
 import { SidebarButton } from "./SidebarButton";
 import Sidebar from "./Sidebar";
@@ -95,7 +92,7 @@ const AcademicsContent = () => {
         to="/faculty"
         className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
-        <img src={facultyImg} className="w-16 h-16 rounded-lg" alt="Faculty" />
+        <span className="text-2xl">🎓</span>
         <div>
           <h3 className="font-semibold">Our Faculty</h3>
           <p className="text-sm">
@@ -107,7 +104,7 @@ const AcademicsContent = () => {
         to="/syllabus"
         className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
-        <img src={syllabusImg} className="w-16 h-16 rounded-lg" alt="Syllabus" />
+        <span className="text-2xl">📝</span>
         <div>
           <h3 className="font-semibold">Syllabus</h3>
           <p className="text-sm">
@@ -119,11 +116,23 @@ const AcademicsContent = () => {
         to="/noticeboard"
         className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
-        <img src={noticeBoardImg} className="w-16 h-16 rounded-lg" alt="Notice Board" />
+        <span className="text-2xl">🚨</span>
         <div>
           <h3 className="font-semibold">Notice Board</h3>
           <p className="text-sm">
             Stay updated with the latest announcements, events, and important information.
+          </p>
+        </div>
+      </Link>
+      <Link
+        to="/fees-structure"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+      >
+        <span className="text-2xl">📃</span>
+        <div>
+          <h3 className="font-semibold">Fees Structure</h3>
+          <p className="text-sm">
+          Here are the details of our school's fee structure.
           </p>
         </div>
       </Link>

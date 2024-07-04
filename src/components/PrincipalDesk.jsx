@@ -28,8 +28,8 @@ const PrincipalDesk = () => {
           <div className="flex justify-between items-start mt-4">
             <Button text="View" onClick={hanldeClick} hasIcon={true} icon={<LuExternalLink />} styles="mt-4 w-1/4"/>
             <div data-aos="fade-up" data-aos-delay="200" className="flex flex-col justify-center items-center gap-4 p-2">
-              <p className="text-white text-xl italic font-martel">- by Swastik Kasera</p>
-              <img src={sign} className="w-24" alt="Signature" />
+              <p className="text-white md:text-xl text-sm italic font-martel">- by Swastik Kasera</p>
+              <img src={sign} className="md:w-24 w-16" alt="Signature" />
             </div>
           </div>
         </div>

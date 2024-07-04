@@ -54,7 +54,7 @@ const StudentAchievement = () => {
 
   return (
     <>
-      <div className="my-8">
+      <div className="my-8 px-1">
         <h2 data-aos="fade-up" className="text-4xl md:text-5xl text-center font-vidaloka font-semibold px-2">
           Our Charming Results
         </h2>

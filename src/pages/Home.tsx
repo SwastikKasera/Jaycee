@@ -32,6 +32,8 @@ const Home: React.FC = () => {
           <GalleryComponent/>
         </div>
         <div data-aos="fade-left" data-aos-delay="100" className='md:hidden'>
+        <h2 className='md:text-5xl text-4xl text-center mt-4 font-vidaloka'>Capturing Memories and Milestones</h2>
+        <p className='md:text-xl text-center my-2 mb-8 font-martel'>Preserving the special moments that highlight the essence of our educational experience.</p>
           <SwipeCarousel/>
         </div>
       </div>

@@ -26,7 +26,7 @@ const Achievements = () => {
 
   return (
     <section ref={setRef} className='p-4 md:p-6 flex justify-center items-center'>
-      <div className='w-full bg-accent min-h-60 h-fit flex flex-col md:flex-row justify-center items-center flex-wrap shadow-md rounded-2xl'>
+      <div className='w-full bg-accent min-h-60 h-fit flex flex-col md:flex-row justify-center items-center flex-wrap shadow-lg rounded-2xl'>
         <div className='md:w-2/6 w-full container p-4 md:p-6 h-full flex justify-center items-center'>
           <h2 data-aos="fade-up" className='text-4xl font-vidaloka lg:text-5xl font-semibold lg:text-left text-center'>Our Achievements</h2>
         </div>
@@ -39,10 +39,10 @@ const Achievements = () => {
                 { start: 0, end: 100, label: 'Passing Result', suffix: '%' },
                 { start: 40, end: 85, label: 'Got 90+ Marks', suffix: '' },
               ].map((item, index) => (
-                <div key={index} data-aos="fade-up" data-aos-delay={100 + index * 50} className="p-2 sm:w-1/2 lg:w-1/4">
+                <div key={index} data-aos="fade-up" data-aos-delay={100 + index * 50} className="p-2 w-1/2 md:w-1/4">
                   {isVisible && (
                     <>
-                      <h2 className="title-font font-vidaloka font-medium text-4xl md:text-5xl flex justify-center text-background">
+                      <h2 className="title-font font-vidaloka font-medium text-4xl lg:text-5xl flex justify-center text-background">
                         <Counter start={item.start} end={item.end} duration={2000} />{item.suffix}
                       </h2>
                       <p className="leading-relaxed font-martel text-background text-sm md:text-base">{item.label}</p>

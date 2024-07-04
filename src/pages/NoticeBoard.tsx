@@ -91,23 +91,23 @@ const NoticeBoard = () => {
           <table className="min-w-full bg-white">
             <thead className="bg-gray-800 text-white font-martel rounded-md">
               <tr>
-                <th className="py-2 px-4 text-left w-2/4">Name</th>
-                <th className="py-2 px-4 text-left">Date</th>
-                <th className="py-2 px-4 text-left">File</th>
+                <th className="py-2 px-4 text-center border-x border-gray-300 w-1/3">Name</th>
+                <th className="py-2 px-4 text-center border-x border-gray-300 w-1/3">Date</th>
+                <th className="py-2 px-4 text-center border-x border-gray-300 w-1/3">File</th>
               </tr>
             </thead>
             <tbody>
               {loading ? (
                 // Render skeleton loaders
-                Array.from({ length: pageSize }).map((_, index) => (
+                Array.from({ length: 3 }).map((_, index) => (
                   <tr key={index} className="border-b">
-                    <td className="py-2 px-4 text-left w-2/4">
+                    <td className="py-2 px-4 text-center w-1/3">
                       <Skeleton />
                     </td>
-                    <td className="py-2 px-4 text-left">
+                    <td className="py-2 px-4 text-center w-1/3">
                       <Skeleton />
                     </td>
-                    <td className="py-2 px-4 text-left">
+                    <td className="py-2 px-4 text-center w-1/3">
                       <Skeleton />
                     </td>
                   </tr>
@@ -115,9 +115,9 @@ const NoticeBoard = () => {
               ) : (
                 noticeData.map(notice => (
                   <tr key={notice.id} className="border-b font-karla">
-                    <td className="py-2 px-4 text-left w-2/4">{notice?.attributes?.notice_name}</td>
-                    <td className="py-2 px-4 text-left">{new Date(notice?.attributes?.notice_date).toLocaleDateString()}</td>
-                    <td className="py-2 px-4 text-left">
+                    <td className="py-2 px-4 text-center border-x border-gray-300 w-1/3">{notice?.attributes?.notice_name}</td>
+                    <td className="py-2 px-4 text-center border-x border-gray-300 w-1/3">{new Date(notice?.attributes?.notice_date).toLocaleDateString()}</td>
+                    <td className="py-2 px-4 text-center border-x border-gray-300 w-1/3">
                       {notice?.attributes?.notice_media?.data !== null && notice?.attributes?.notice_media?.data.map(media => (
                         <a
                           key={media?.id}
