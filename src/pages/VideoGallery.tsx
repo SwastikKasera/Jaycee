@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Button from '../components/Button';
 import { RiUploadCloud2Line } from "react-icons/ri";
+import Skeleton from 'react-loading-skeleton';
 
 interface VideoAttributes {
   videoName: string;
@@ -31,10 +32,11 @@ interface ApiResponse {
 const VideoGallery: React.FC = () => {
   const [videos, setVideos] = useState<VideoData[]>([]);
   const [expandedDescriptions, setExpandedDescriptions] = useState<{[key: number]: boolean}>({});
-
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     const fetchVideos = async () => {
       try {
+        setLoading(true)
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/video-galleries?populate=*`, {
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
@@ -43,6 +45,8 @@ const VideoGallery: React.FC = () => {
         setVideos(response.data.data);
       } catch (error) {
         console.error('Error fetching videos:', error);
+      } finally {
+        setLoading(false)
       }
     };
 
@@ -89,6 +93,12 @@ const VideoGallery: React.FC = () => {
         <p className='font-martel text-center px-20 mt-4'>Discover a variety of captivating content, from interviews and behind-the-scenes footage to performances and tutorials. Whether you're here to learn, be inspired, or enjoy entertainment, our gallery engages with stories, creativity, and passion in every frame.</p>
       </div>
       <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {loading ? Array.from({ length: 3 }).map((_, index) => (
+                  <div key={index} className="border-b">
+                      <Skeleton height={200} baseColor="lightgray" />
+                  </div>
+                )):
+        <>
         {videos.map((video) => {
           const videoId = getYoutubeVideoId(video.attributes.videoLink);
           const isExpanded = expandedDescriptions[video.id] || false;
@@ -137,6 +147,7 @@ const VideoGallery: React.FC = () => {
             </div>
           );
         })}
+        </>}
       </div>
     </>
   );

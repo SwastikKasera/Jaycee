@@ -21,7 +21,9 @@ function App() {
   const stickyRef = useRef<HTMLDivElement>(null);
   return (
     <div className="relative">
-      <Cursor />
+      <div className="hidden md:block">
+        <Cursor />
+      </div>
       <BrowserRouter>
         <AnimatedNavbar />
         <div className="App overflow-x-hidden bg-background" ref={stickyRef}>

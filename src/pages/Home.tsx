@@ -8,12 +8,18 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 import PrincipalDesk from '../components/PrincipalDesk';
 import MovingText from '../components/MovingText';
+import Button from '../components/Button';
+import { LuExternalLink } from 'react-icons/lu';
+import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
   useEffect(() => {
     AOS.init();
   }, [])
-
+  const navigate = useNavigate()
+  const handleClick = ()=>{
+    navigate("/gallery/images")
+  }
   return (
     <>
       <HeroSection />
@@ -31,9 +37,10 @@ const Home: React.FC = () => {
           <p className='text-xl text-center my-2 mb-8 font-martel'>Preserving the special moments that highlight the essence of our educational experience.</p>
           <GalleryComponent/>
         </div>
-        <div data-aos="fade-left" data-aos-delay="100" className='md:hidden'>
-        <h2 className='md:text-5xl text-4xl text-center mt-4 font-vidaloka'>Capturing Memories and Milestones</h2>
-        <p className='md:text-xl text-center my-2 mb-8 font-martel'>Preserving the special moments that highlight the essence of our educational experience.</p>
+        <div data-aos="fade-left" data-aos-delay="100" className='md:hidden flex flex-col justify-center items-center'>
+          <h2 className='md:text-5xl text-4xl text-center mt-4 font-vidaloka'>Capturing Memories and Milestones</h2>
+          <p className='md:text-xl text-center m-2 font-martel'>Preserving the special moments that highlight the essence of our educational experience.</p>
+          <Button hasIcon={true} onClick={handleClick} icon={<LuExternalLink className='text-white' />} styles='border-2 mb-4 border-accent bg-secondary' text='View Gallery'/>
           <SwipeCarousel/>
         </div>
       </div>

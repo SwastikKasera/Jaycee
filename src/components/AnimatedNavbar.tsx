@@ -45,18 +45,6 @@ const AboutContent = () => {
   return (
     <div className="w-[450px] z-50 bg-white rounded-lg p-6 shadow-xl flex flex-col gap-4">
       <Link
-        to="/about/school"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
-      >
-        <span className="text-2xl">🏫</span>
-        <div>
-          <h3 className="font-semibold">Our School</h3>
-          <p className="text-sm">
-            Discover the history, mission, and values that define our institution.
-          </p>
-        </div>
-      </Link>
-      <Link
         to="/about/founder"
         className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
@@ -77,6 +65,18 @@ const AboutContent = () => {
           <h3 className="font-semibold">Our Members</h3>
           <p className="text-sm">
             Meet the dedicated members who drive our school's success.
+          </p>
+        </div>
+      </Link>
+      <Link
+        to="/about/school"
+        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+      >
+        <span className="text-2xl">🏫</span>
+        <div>
+          <h3 className="font-semibold">Our School</h3>
+          <p className="text-sm">
+            Discover the history, mission, and values that define our institution.
           </p>
         </div>
       </Link>
@@ -125,7 +125,7 @@ const AcademicsContent = () => {
         </div>
       </Link>
       <Link
-        to="/fees-structure"
+        to="/fee-structure"
         className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">📃</span>

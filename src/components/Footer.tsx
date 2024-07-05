@@ -152,7 +152,7 @@ const Footer = () => {
         onClick={handleCall}
         className="text-white bg-blue-800 p-2 flex justify-center cursor-pointer hover:underline text-xs"
       >
-        <p>
+        <p className="text-center">
           Designed and Developed by Swastik Kasera -{" "}
           <strong>Super Computer and Networks</strong>
         </p>

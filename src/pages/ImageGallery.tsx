@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const GalleryComponent: React.FC = () => {
-    const [gallery, setGallery] = useState<any[]>([]);
     const [lightbox, setLightboxImages] = useState<any[]>([]);
     const [openLightbox, setOpenLightbox] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
-
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
         const fetchGallery = async () => {
             try {
+                setLoading(true)
                 const resp = await axios.get(
                     `${process.env.REACT_APP_API_URL}/api/galleries?populate=*`,
                     {
@@ -20,13 +22,14 @@ const GalleryComponent: React.FC = () => {
                         },
                     }
                 );
-                setGallery(resp.data.data);
                 const lightboxUrls = resp.data.data.reduce((acc: string[], ele: any) => {
                     return acc.concat(ele?.attributes?.galleryImages?.data.map((item: any) => item?.attributes?.url));
                 }, []);
                 setLightboxImages(lightboxUrls.filter((url:any) => url)); // Remove undefined/null entries
             } catch (error) {
                 console.error("Error fetching gallery data", error);
+            } finally {
+                setLoading(false)
             }
         };
         fetchGallery();
@@ -40,7 +43,14 @@ const GalleryComponent: React.FC = () => {
     return (
         <>
             <h2 className='text-secondary font-semibold text-center text-5xl font-vidaloka my-8'>Image Gallery</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-4">
+            <div className="grid grid-cols-1 p-2 sm:grid-cols-2 md:grid-cols-3 gap-4 my-4">
+                
+                {loading ? Array.from({ length: 3 }).map((_, index) => (
+                  <div key={index} className="border-b">
+                      <Skeleton height={200} baseColor="lightgray" />
+                  </div>
+                )):
+                (<>
                 {lightbox.map((image, index) => (
                     <div 
                         onClick={()=> setOpenLightbox(true)}
@@ -56,7 +66,7 @@ const GalleryComponent: React.FC = () => {
                             alt={image}
                         />
                     </div>
-                ))}
+                ))}</>)}
             </div>
             <Lightbox
                 open={openLightbox}
