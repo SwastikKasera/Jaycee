@@ -168,7 +168,7 @@ const AnimatedNavbar = () => {
       <div className="bg-secondary flex w-full justify-between items-center py-1 px-2">
         <Link to="/" className="w-fit flex justify-start items-center gap-2">
           <img src={logo} className="w-14" alt="" />
-          <h1 className="text-white font-karla text-center md:text-xl text-base">
+          <h1 className="text-white font-karla text-center md:text-2xl text-base">
             Jaycee Bal Mandir
             <p className="text-sm">(Montessori)</p>
             <p className="text-accent text-sm">Junior High School</p>

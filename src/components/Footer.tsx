@@ -8,7 +8,7 @@ import { TbBrandYoutube } from "react-icons/tb";
 import { MdMailOutline } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
-import jcilogo from "../assets/jci.png"
+import jcilogo from "../assets/jci.png";
 const Footer = () => {
   const links = [
     {
@@ -37,7 +37,7 @@ const Footer = () => {
   };
   return (
     <footer className="bg-secondary text-background body-font font-karla">
-      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div className="container px-5 py-12 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-full md:w-5/12 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <div className="">
             <h2 className="text-center mb-1">
@@ -45,7 +45,7 @@ const Footer = () => {
             </h2>
             <Link
               to="/"
-              className="w-full flex justify-center md:justify-start items-center gap-3 mb-4 sm:mb-2"
+              className="w-full flex justify-center lg:justify-start items-center gap-3 mb-4 sm:mb-2"
             >
               <div className="flex flex-col justify-center items-center gap-2">
                 <img src={logo} className="w-20 md:w-32" alt="" />
@@ -54,7 +54,7 @@ const Footer = () => {
                 </p>
               </div>
               <div className="flex flex-col w-fit justify-start mb-6 md:w-full">
-                <h1 className="text-white font-karla text-left text-3xl">
+                <h1 className="text-white font-karla md:text-left text-center text-3xl">
                   Jaycee Bal Mandir
                   <p className="text-base">
                     (Montessori){" "}
@@ -62,29 +62,11 @@ const Footer = () => {
                       Junior High School
                     </span>
                   </p>
+                  <p className="text-sm mt-2">An English Medium Co-Educational Institution</p>
                 </h1>
               </div>
             </Link>
-            <div className="flex justify-center items-center">
-              <hr className="w-full" />
-              <p className="w-full text-center">Sister Concern</p>
-              <hr className="w-full" />
-            </div>
-            <div className="flex mt-2 gap-2 justify-center items-center">
-              <div className="w-full flex justify-start items-center gap-2">
-                <img src={jcilogo} className="w-16" alt="" />
-                <h1 className="text-white font-karla text-center text-lg">
-                  Raja Shree Nivasi Prasad Singh J.C. Kanya Inter College
-                </h1>
-              </div>
-              <div className="w-full flex justify-start items-center gap-2">
-                <img src={logo} className="w-14" alt="" />
-                <h1 className="text-white font-karla text-center text-xl">
-                  Jaycee Bal Mandir
-                  <p className="text-sm">Junior High School</p>
-                </h1>
-              </div>
-            </div>
+            <div className="flex mt-2 flex-col md:flex-row gap-2 justify-center items-center"></div>
           </div>
         </div>
         <div className="flex-grow flex flex-wrap justify-around -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -124,7 +106,10 @@ const Footer = () => {
               </div>
             </nav>
             <span className="inline-flex sm:mt-2 mt-4 justify-center sm:justify-start">
-              <Link to="https://www.youtube.com/@jayceebalmandirmusaffargan6756" className="">
+              <Link
+                to="https://www.youtube.com/@jayceebalmandirmusaffargan6756"
+                className=""
+              >
                 <TbBrandYoutube size={26} />
               </Link>
               <Link to="" className="ml-3 ">
@@ -138,6 +123,40 @@ const Footer = () => {
               </Link>
             </span>
           </div>
+        </div>
+      </div>
+      <div className="flex justify-center items-center">
+        <hr className="w-full" />
+        <p className="w-full text-center">Sister Concern</p>
+        <hr className="w-full" />
+      </div>
+      <div className="flex w-full mx-auto gap-4 flex-col lg:flex-row justify-between items-center px-5 py-6">
+        <div className="flex flex-row justify-start items-center w-full lg:w-auto mb-4 lg:mb-0">
+          <div className="flex flex-col justify-center items-center mb-2 sm:mb-0">
+            <img src={jcilogo} className="w-20 sm:w-16" alt="" />
+            <p className="text-xs sm:text-sm text-center w-[85px]">ESTD 1987</p>
+          </div>
+          <div className="flex flex-col">
+            <h1 className="text-white font-karla text-center sm:text-left text-base sm:text-lg">
+              Raja Shree Nivasi Prasad Singh J.C. Kanya Inter College
+            </h1>
+            <p className="text-xs sm:text-sm text-center sm:text-left text-accent">
+              Vijaypur Kothi, Civil Lines, Mirzapur - 231001
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-row lg:mr-4 justify-start items-center gap-2 w-full lg:w-auto">
+          <div className="flex flex-col justify-center items-center mb-2 sm:mb-0">
+            <img src={logo} className="w-20 sm:w-16" alt="" />
+            <p className="text-xs sm:text-sm text-center w-[85px]">ESTD 1974</p>
+          </div>
+          <h1 className="text-white font-karla text-center sm:text-left text-lg sm:text-xl">
+            Jaycee Bal Mandir
+            <p className="text-xs sm:text-sm">Junior High School</p>
+            <p className="text-xs sm:text-sm text-center sm:text-left text-accent">
+              Civil Lines, Mirzapur - 231001
+            </p>
+          </h1>
         </div>
       </div>
       <div className="bg-accent flex justify-center items-center">
