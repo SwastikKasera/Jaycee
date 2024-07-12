@@ -71,7 +71,7 @@ When children are small, they are like small plants. As they grow, they become b
               className="flex flex-col justify-center items-center gap-4 p-2"
             >
               <p className="text-white md:text-lg text-sm italic font-martel">
-                - by Swastik Kasera
+                - by Kamla Devi Jauhari
               </p>
               <img src={sign} className="md:w-24 w-16" alt="Signature" />
             </div>

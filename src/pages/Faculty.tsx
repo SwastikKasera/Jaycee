@@ -1,5 +1,5 @@
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -19,60 +19,74 @@ interface FacultyDataFormat {
   };
 }
 
-const Faculty = () => {
+const FacultyCard: React.FC<{ faculty: FacultyDataFormat }> = React.memo(({ faculty }) => (
+  <div className="p-4 md:w-1/2 w-full">
+    <div className="h-full bg-neutral-50 p-6 rounded">
+      <div className="flex justify-between items-start w-full">
+        <div className="flex justify-start items-start">
+          <img
+            alt={`${faculty.facultyName}`}
+            src={faculty.facultyPhoto.medium || "https://dummyimage.com/106x106"}
+            className="w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"
+            loading="lazy"
+          />
+          <span className="flex-grow flex flex-col pl-4">
+            <span className="title-font font-semibold text-black text-lg font-karla">
+              {faculty.facultyName}
+            </span>
+            <span className="text-secondary text-sm font-martel">{faculty.facultyQualification}</span>
+          </span>
+        </div>
+        <div className="flex justify-center items-center gap-2">
+          <p className="bg-primary w-fit px-2 py-1 rounded-full text-background font-karla">{faculty.facultyPosition}</p>
+        </div>
+      </div>
+      <div>
+        <p className="pt-2 font-karla">{faculty.facultyBio}</p>
+      </div>
+    </div>
+  </div>
+));
+
+const Faculty: React.FC = () => {
   const [facultyData, setFacultyData] = useState<FacultyDataFormat[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const resp = await axios.get(`${process.env.REACT_APP_API_URL}/api/faculties?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
-          }
-        });
+  const fetchImages = useCallback(async () => {
+    try {
+      const resp = await axios.get(`${process.env.REACT_APP_API_URL}/api/faculties?populate=*`, {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
+        }
+      });
 
-        const data = resp.data.data.map((item: any) => {
-          const { 
-            facultyName, 
-            facultyId, 
-            facultyDOB, 
-            facultyGender, 
-            facultyQualification, 
-            facultyPosition, 
-            facultySubjectExpert, 
-            facultyBio 
-          } = item.attributes;
-          
-          const { small, medium, large } = item.attributes.facultyPhoto.data.attributes.formats;
+      const data = resp.data.data.map((item: any) => ({
+        facultyName: item.attributes.facultyName,
+        facultyId: item.attributes.facultyId,
+        facultyDOB: item.attributes.facultyDOB,
+        facultyGender: item.attributes.facultyGender,
+        facultyQualification: item.attributes.facultyQualification,
+        facultyPosition: item.attributes.facultyPosition,
+        facultySubjectExpert: item.attributes.facultySubjectExpert,
+        facultyBio: item.attributes.facultyBio,
+        facultyPhoto: {
+          small: item.attributes.facultyPhoto.data.attributes.formats.small?.url,
+          medium: item.attributes.facultyPhoto.data.attributes.formats.medium?.url,
+          large: item.attributes.facultyPhoto.data.attributes.formats.large?.url
+        }
+      }));
 
-          return {
-            facultyName,
-            facultyId,
-            facultyDOB,
-            facultyGender,
-            facultyQualification,
-            facultyPosition,
-            facultySubjectExpert,
-            facultyBio,
-            facultyPhoto: {
-              small: small?.url,
-              medium: medium?.url,
-              large: large?.url
-            }
-          };
-        });
-
-        setFacultyData(data);
-      } catch (error) {
-        console.error("Error fetching faculty data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchImages();
+      setFacultyData(data);
+    } catch (error) {
+      console.error("Error fetching faculty data:", error);
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchImages();
+  }, [fetchImages]);
 
   return (
     <div className="container px-5 py-24 w-full mx-auto bg-background">
@@ -111,31 +125,7 @@ const Faculty = () => {
               ))
             ) : (
               facultyData.map((faculty, index) => (
-                <div key={index} className="p-4 md:w-1/2 w-full">
-                  <div className="h-full bg-neutral-50 p-6 rounded">
-                    <div className="flex justify-between items-start w-full">
-                      <div className="flex justify-start items-start">
-                        <img
-                          alt="faculty"
-                          src={`${faculty.facultyPhoto.medium}` || "https://dummyimage.com/106x106"}
-                          className="w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"
-                        />
-                        <span className="flex-grow flex flex-col pl-4">
-                          <span className="title-font font-semibold text-black text-lg font-karla">
-                            {faculty.facultyName}
-                          </span>
-                          <span className="text-secondary text-sm font-martel">{faculty.facultyQualification}</span>
-                        </span>
-                      </div>
-                      <div className="flex justify-center items-center gap-2">
-                        <p className="bg-primary w-fit px-2 py-1 rounded-full text-background font-karla">{faculty.facultyPosition}</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="pt-2 font-karla">{faculty.facultyBio}</p>
-                    </div>
-                  </div>
-                </div>
+                <FacultyCard key={faculty.facultyId || index} faculty={faculty} />
               ))
             )}
           </div>

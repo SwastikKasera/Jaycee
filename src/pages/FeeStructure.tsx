@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import axios from 'axios';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -23,65 +23,90 @@ interface FeeStructureItem {
   };
 }
 
-const FeeStructure = () => {
+const FeeStructureRow: React.FC<{ item: FeeStructureItem }> = React.memo(({ item }) => {
+  const relativeTime = useMemo(() => getRelativeTime(item.attributes.updatedAt), [item.attributes.updatedAt]);
+
+  return (
+    <tr className="border-b font-karla">
+      <td className="py-2 px-4 text-center border-x border-gray-300">{item.attributes.Name}</td>
+      <td className="py-2 px-4 text-center border-x border-gray-300">{item.attributes.Description}</td>
+      <td className="py-2 px-4 text-center border-x border-gray-300">{relativeTime}</td>
+      <td className="py-2 px-4 text-center">
+        {item.attributes.File.data && (
+          <a
+            href={item.attributes.File.data.attributes.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline block"
+          >
+            {item.attributes.File.data.attributes.name}
+          </a>
+        )}
+      </td>
+    </tr>
+  );
+});
+
+const getRelativeTime = (dateString: string) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  const diffInDays = Math.floor(diffInHours / 24);
+  const diffInWeeks = Math.floor(diffInDays / 7);
+  const diffInMonths = Math.floor(diffInDays / 30);
+  const diffInYears = Math.floor(diffInDays / 365);
+
+  if (diffInYears > 0) return `${diffInYears} year${diffInYears > 1 ? 's' : ''} ago`;
+  if (diffInMonths > 0) return `${diffInMonths} month${diffInMonths > 1 ? 's' : ''} ago`;
+  if (diffInWeeks > 0) return `${diffInWeeks} week${diffInWeeks > 1 ? 's' : ''} ago`;
+  if (diffInDays > 0) return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+  if (diffInHours > 0) return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+  if (diffInMinutes > 0) return `${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
+  return 'Just now';
+};
+
+const FeeStructure: React.FC = () => {
   const [feeStructureData, setFeeStructureData] = useState<FeeStructureItem[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [pageSize, setPageSize] = useState(25);
+  const [pageSize] = useState(25);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchFeeStructure = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/fee-structures?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}`, {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
-          }
-        });
-        setFeeStructureData(response.data.data);
-        setTotalPages(response.data.meta.pagination.pageCount);
-        setLoading(false);
-      } catch (error) {
-        console.log("Failed to load fee structure");
-        setLoading(false);
-      }
-    };
-
-    fetchFeeStructure();
+  const fetchFeeStructure = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/fee-structures`, {
+        params: {
+          populate: '*',
+          'pagination[page]': currentPage,
+          'pagination[pageSize]': pageSize,
+        },
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_KEY}`
+        }
+      });
+      setFeeStructureData(response.data.data);
+      setTotalPages(response.data.meta.pagination.pageCount);
+    } catch (error) {
+      console.error("Failed to load fee structure", error);
+    } finally {
+      setLoading(false);
+    }
   }, [currentPage, pageSize]);
 
-  const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+  useEffect(() => {
+    fetchFeeStructure();
+  }, [fetchFeeStructure]);
 
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
+  const handlePreviousPage = useCallback(() => {
+    setCurrentPage(prev => Math.max(prev - 1, 1));
+  }, []);
 
-  const getRelativeTime = (dateString: string) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-    const diffInMinutes = Math.floor(diffInSeconds / 60);
-    const diffInHours = Math.floor(diffInMinutes / 60);
-    const diffInDays = Math.floor(diffInHours / 24);
-    const diffInWeeks = Math.floor(diffInDays / 7);
-    const diffInMonths = Math.floor(diffInDays / 30);
-    const diffInYears = Math.floor(diffInDays / 365);
-
-    if (diffInYears > 0) return `${diffInYears} year${diffInYears > 1 ? 's' : ''} ago`;
-    if (diffInMonths > 0) return `${diffInMonths} month${diffInMonths > 1 ? 's' : ''} ago`;
-    if (diffInWeeks > 0) return `${diffInWeeks} week${diffInWeeks > 1 ? 's' : ''} ago`;
-    if (diffInDays > 0) return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
-    if (diffInHours > 0) return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
-    if (diffInMinutes > 0) return `${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
-    return 'Just now';
-  };
+  const handleNextPage = useCallback(() => {
+    setCurrentPage(prev => Math.min(prev + 1, totalPages));
+  }, [totalPages]);
 
   return (
     <div className='bg-background'>
@@ -106,7 +131,6 @@ const FeeStructure = () => {
             </thead>
             <tbody>
               {loading ? (
-                // Render skeleton loaders
                 Array.from({ length: 2 }).map((_, index) => (
                   <tr key={index} className="border-b">
                     <td className="py-2 px-4 text-left"><Skeleton /></td>
@@ -117,23 +141,7 @@ const FeeStructure = () => {
                 ))
               ) : (
                 feeStructureData.map(item => (
-                  <tr key={item.id} className="border-b font-karla">
-                    <td className="py-2 px-4 text-center border-x border-gray-300">{item.attributes.Name}</td>
-                    <td className="py-2 px-4 text-center border-x border-gray-300">{item.attributes.Description}</td>
-                    <td className="py-2 px-4 text-center border-x border-gray-300">{getRelativeTime(item.attributes.updatedAt)}</td>
-                    <td className="py-2 px-4 text-center">
-                      {item.attributes.File.data && (
-                        <a
-                          href={item.attributes.File.data.attributes.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-500 hover:underline block"
-                        >
-                          {item.attributes.File.data.attributes.name}
-                        </a>
-                      )}
-                    </td>
-                  </tr>
+                  <FeeStructureRow key={item.id} item={item} />
                 ))
               )}
             </tbody>
@@ -143,7 +151,8 @@ const FeeStructure = () => {
           <button
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
+            className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 disabled:opacity-50"
+            aria-label="Previous page"
           >
             Previous
           </button>
@@ -153,7 +162,8 @@ const FeeStructure = () => {
           <button
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
+            className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 disabled:opacity-50"
+            aria-label="Next page"
           >
             Next
           </button>

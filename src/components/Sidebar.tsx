@@ -29,10 +29,10 @@ const Dropdown: React.FC<DropdownProps> = ({ title, icon, children, toggleSideba
   return (
     <div>
       <button
-        className="flex w-full gap-2 items-center justify-between hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors"
+        className="flex bg-neutral-200 w-full gap-2 items-center justify-between hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="flex gap-2 items-center">
+        <span className="flex gap-2  items-center">
           {icon}{title}
         </span>
         {isOpen ? <LuChevronUp /> : <LuChevronDown />}
@@ -42,7 +42,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, icon, children, toggleSideba
           {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
               return React.cloneElement(child as React.ReactElement<any>, {
-                className: `${child.props.className} block p-2 hover:bg-secondary hover:text-neutral-100 rounded-lg`,
+                className: `${child.props.className} block p-2 hover:bg-secondary hover:text-neutral-100 bg-neutral-200 rounded-lg`,
                 onClick: (e: React.MouseEvent) => {
                   if (child.props.onClick) {
                     child.props.onClick(e);
@@ -98,7 +98,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, setActive }) => {
             <SidebarButton isOpen={isOpen} setIsOpen={setIsOpen} setActive={setActive} />
             <ul className="space-y-2 mt-6">
               <li>
-                <Link to="/" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                <Link to="/" className='flex bg-neutral-200 gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
                   <LuHome />Home
                 </Link>
               </li>
@@ -116,7 +116,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, setActive }) => {
                 </Dropdown>
               </li>
               <li>
-                <Link to="/admission" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                <Link to="/admission" className='flex gap-2 bg-neutral-200 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
                   <LuSchool2 />Admission
                 </Link>
               </li>
@@ -128,7 +128,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, setActive }) => {
                 </Dropdown>
               </li>
               <li>
-                <Link to="/contact" className='flex gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                <Link to="/contact" className='flex bg-neutral-200 gap-2 items-center hover:bg-secondary hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
                   <LuPhone />Contact
                 </Link>
               </li>

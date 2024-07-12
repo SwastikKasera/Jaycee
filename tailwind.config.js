@@ -16,10 +16,7 @@ module.exports = {
         vidaloka: ['Vidaloka', 'serif'],
         martel: ['Martel', 'serif'],
         karla: ['Karla', 'serif'],
-      },
-      backgroundImage: {
-        'member-background': "url('../src/assets/memberBackground.svg')",
-      },
+      }
     },
   },
   plugins: [],

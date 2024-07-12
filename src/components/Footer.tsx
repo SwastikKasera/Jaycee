@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
-import { CiTwitter } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { TbBrandYoutube } from "react-icons/tb";
@@ -112,13 +111,10 @@ const Footer = () => {
               >
                 <TbBrandYoutube size={26} />
               </Link>
-              <Link to="" className="ml-3 ">
-                <CiTwitter size={26} />
-              </Link>
-              <Link to="" className="ml-3 ">
+              <Link to="https://www.instagram.com/jayceebalmandir1964/" className="ml-3 ">
                 <CiInstagram size={26} />
               </Link>
-              <Link to="" className="ml-3 ">
+              <Link to="https://www.facebook.com/jayceebal.mandir" className="ml-3 ">
                 <CiFacebook size={26} />
               </Link>
             </span>
