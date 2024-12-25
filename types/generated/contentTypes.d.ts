@@ -794,6 +794,7 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
     singularName: 'contact-form';
     pluralName: 'contact-forms';
     displayName: 'Contact Form';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -802,6 +803,8 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
     firstName: Attribute.String & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     message: Attribute.Text;
+    email: Attribute.String & Attribute.Required;
+    subject: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
