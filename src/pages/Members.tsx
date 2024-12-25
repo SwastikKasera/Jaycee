@@ -24,10 +24,10 @@ const Members = () => {
               />
             </div>
             <div className="md:7/12 lg:w-6/12">
-              <h2 className="text-2xl text-gray-900 font-bold md:text-4xl font-martel">
+              <h2 className="text-2xl text-[#ffc847] font-bold md:text-4xl font-martel">
                 Jaycee Members
               </h2>
-              <p className="mt-4 font-karla text-gray-600">
+              <p className="mt-4 font-karla text-white">
                 Hurray for Jaycee School and its wonderful President, Lolark Nath Singh! The dedication and leadership shown by President Singh and the entire Jaycee team have made a tremendous positive impact on our community. Through their tireless efforts, Jaycee School has become a beacon of education and opportunity for our young learners. Here's to President Lolark Nath Singh and everyone at Jaycee School for their outstanding contributions to our community's growth and development.
               </p>
               <Button text="View" onClick={hanldeClick} hasIcon={true} icon={<LuExternalLink />} styles="mt-4 w-1/4"/>

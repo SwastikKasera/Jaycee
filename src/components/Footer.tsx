@@ -1,132 +1,144 @@
 import React from "react";
 import logo from "../assets/logo.svg";
-import { Link } from "react-router-dom";
-import { CiFacebook } from "react-icons/ci";
-import { CiInstagram } from "react-icons/ci";
-import { TbBrandYoutube } from "react-icons/tb";
-import { MdMailOutline } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoLocationSharp } from "react-icons/io5";
+import image21 from "../styles/images/shape/shape-21.png";
+import image22 from "../styles/images/shape/shape-22.png";
+import image23 from "../styles/images/shape/shape-23.png";
+import image24 from "../styles/images/shape/shape-24.png";
+import image25 from "../styles/images/shape/shape-25.png";
 import jcilogo from "../assets/jci.png";
+import { LuFacebook, LuInstagram, LuMail, LuMapPin, LuPhone, LuYoutube } from "react-icons/lu";
 const Footer = () => {
-  const links = [
-    {
-      link: "/noticeboard",
-      text: "Noticeboard",
-    },
-    {
-      link: "https://jayceeapi.onrender.com/admin",
-      text: "Admin",
-    },
-    {
-      link: "/gallery/images",
-      text: "Gallery",
-    },
-    {
-      link: "/admission",
-      text: "Admission",
-    },
-    {
-      link: "/about",
-      text: "About",
-    },
-  ];
+
   const handleCall = () => {
     window.location.href = "tel:+91 9839059374";
   };
   return (
-    <footer className="bg-secondary text-background body-font font-karla">
-      <div className="container px-5 py-12 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-full md:w-5/12 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-          <div className="">
-            <h2 className="text-center mb-1">
-              Under the management of Mirzapur Junior Chamber
-            </h2>
-            <Link
-              to="/"
-              className="w-full flex justify-center lg:justify-start items-center gap-3 mb-4 sm:mb-2"
-            >
-              <div className="flex flex-col justify-center items-center gap-2">
-                <img src={logo} className="w-20 md:w-32" alt="" />
-                <p className="text-neutral-50 text-xs sm:text-base">
-                  ESTD 1964
-                </p>
-              </div>
-              <div className="flex flex-col w-fit justify-start mb-6 md:w-full">
-                <h1 className="text-white font-karla md:text-left text-center text-3xl">
-                  Jaycee Bal Mandir
-                  <p className="text-base">
-                    (Montessori){" "}
-                    <span className="text-accent text-base">
-                      Junior High School
-                    </span>
-                  </p>
-                  <p className="text-sm mt-2">An English Medium Co-Educational Institution</p>
-                </h1>
-              </div>
-            </Link>
-            <div className="flex mt-2 flex-col md:flex-row gap-2 justify-center items-center"></div>
+    <>
+    <footer className="main-footer">
+    <div className="widget-section">
+      <div className="pattern-layer">
+        <div
+          className="pattern-1 img_dark_yellow_filter"
+          style={{ backgroundImage: `url(${image21})` }}
+        ></div>
+        <div
+          className="pattern-2"
+          style={{ backgroundImage: `url(${image22})` }}
+        ></div>
+        <div
+          className="pattern-3 img_dark_yellow_filter"
+          style={{ backgroundImage: `url(${image23})` }}
+        ></div>
+        <div
+          className="pattern-4 float-bob-x img_dark_yellow_filter"
+          style={{ backgroundImage: `url(${image24})` }}
+        ></div>
+        <div
+          className="pattern-5 float-bob-y"
+          style={{ backgroundImage: `url(${image25})` }}
+        ></div>
+      </div>
+      <div className="auto-container">
+        <div className="row clearfix">
+          <div className="col-lg-4 col-md-6 col-sm-12 footer-column">
+            <div className="footer-widget logo-widget">
+              <figure className="footer-logo">
+                <a href="/">
+                  <div className="flex justify-start items-center gap-3">
+                    <img src={logo} className="w-20" alt="logo" />
+                    <div>
+                      <h3>Jaycee Bal Mandir</h3>
+                      <p>(Montesorri) <span className="text-[#ffc847]">Junior High School</span></p>
+                    </div>
+                  </div>
+                </a>
+              </figure>
+              <p>
+                Mauris ut enim sit amet lacus ornare ullamcor. Praesent
+                placerat nequ puru rhoncu tincidunt odio ultrices.
+              </p>
+              <h3>
+                <a href="/">info@jaycee.com</a>
+              </h3>
+            </div>
           </div>
-        </div>
-        <div className="flex-grow flex flex-wrap justify-around -mb-10 md:mt-0 mt-10 md:text-left text-center">
-          <div className="lg:w-fit md:w-1/2 w-full px-4">
-            <h2 className="text-2xl font-medium mb-3 text-start">
-              Important Links
-            </h2>
-            <nav className="flex flex-col justify-start items-start gap-3 mb-10">
-              {links.map((l, index) => (
-                <Link to={l.link} key={index} className="hover:text-accent">
-                  {l.text}
-                </Link>
-              ))}
-            </nav>
+          <div className="col-lg-2 col-md-6 col-sm-12 footer-column">
+            <div className="footer-widget links-widget">
+              <div className="widget-title">
+                <h3>Quick Links</h3>
+              </div>
+              <div className="widget-content">
+                <ul className="links-list clearfix">
+                  <li>
+                    <a href="/">Noticeboard</a>
+                  </li>
+                  <li>
+                    <a href="/">Admission</a>
+                  </li>
+                  <li>
+                    <a href="/">Faculty</a>
+                  </li>
+                  <li>
+                    <a href="/">Contact Us</a>
+                  </li>
+                  <li>
+                    <a href="/">Gallery</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div className="lg:w-1/3 md:w-1/2 w-full flex flex-col px-4">
-            <h2 className="text-2xl text-start font-medium mb-3">Contact Us</h2>
-            <nav className="flex flex-col gap-3">
-              <div className="flex justify-start items-center gap-2">
-                <p className="flex justify-center items-center">
-                  <MdMailOutline className="inline-block mr-2 text-accent w-5" />
-                  info@jaycee.com
-                </p>
+          <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
+            <div className="footer-widget links-widget">
+              <div className="widget-title">
+                <h3>Services</h3>
               </div>
-              <div className="flex justify-start items-center gap-2 w-full">
-                <p className="flex justify-center items-center">
-                  <FaPhoneAlt className="inline-block mr-2 text-accent w-5" />
-                  05442-220-531 <br />
-                  +91 94156 79969
-                </p>
+              <div className="widget-content">
+                <ul className="links-list clearfix">
+                  <li>
+                    <a href="/">Our Faculty</a>
+                  </li>
+                  <li>
+                    <a href="/">Acedemics</a>
+                  </li>
+                  <li>
+                    <a href="/">Founder</a>
+                  </li>
+                  <li>
+                    <a href="/">Fee Structure</a>
+                  </li>
+                  <li>
+                    <a href="https://jayceeapi.onrender.com/admin">Admin</a>
+                  </li>
+                </ul>
               </div>
-              <div className="flex justify-start items-start gap-2">
-                <IoLocationSharp className="inline-block text-accent mt-2 w-5" />
-                <p className="max-w-80 text-start w-full">
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
+            <div className="footer-widget subscribe-widget">
+              <div className="widget-title">
+                <h3>Contact Details</h3>
+              </div>
+              <div className="widget-content">
+                <p className="flex justify-start items-center gap-2">
+                  <span>
+                    <LuMapPin />
+                  </span> 
                   Mussafarganj, Mirzapur, Uttar Pradesh 231001
                 </p>
+                <p className="flex justify-start items-center gap-2">
+                  <LuPhone/> 05442 - 220 - 531
+                </p>
+                <p className="flex justify-start items-center gap-2">
+                  <LuMail/> info@jaycee.com
+                </p>
               </div>
-            </nav>
-            <span className="inline-flex sm:mt-2 mt-4 justify-center sm:justify-start">
-              <Link
-                to="https://www.youtube.com/@jayceebalmandirmusaffargan6756"
-                className=""
-              >
-                <TbBrandYoutube size={26} />
-              </Link>
-              <Link to="https://www.instagram.com/jayceebalmandir1964/" className="ml-3 ">
-                <CiInstagram size={26} />
-              </Link>
-              <Link to="https://www.facebook.com/jayceebal.mandir" className="ml-3 ">
-                <CiFacebook size={26} />
-              </Link>
-            </span>
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center">
-        <hr className="w-full" />
-        <p className="w-full text-center">Sister Concern</p>
-        <hr className="w-full" />
-      </div>
-      <div className="flex w-full mx-auto gap-4 flex-col lg:flex-row justify-between items-center px-5 py-6">
+    </div>
+    <div className="flex w-full mx-auto gap-4 flex-col lg:flex-row justify-between items-center px-5 py-6">
         <div className="flex flex-row justify-start items-center w-full lg:w-auto mb-4 lg:mb-0">
           <div className="flex flex-col justify-center items-center mb-2 sm:mb-0">
             <img src={jcilogo} className="w-20 sm:w-16" alt="" />
@@ -155,15 +167,34 @@ const Footer = () => {
           </h1>
         </div>
       </div>
-      <div className="bg-accent flex justify-center items-center">
-        <div className="container py-2 px-5 flex flex-col flex-wrap gap-1 justify-center items-center">
-          <p className="text-secondary font-bold text-sm text-center sm:text-left">
-            Copyright © 2024 Jaycee Bal Mandir School, Mirzapur. All Right
-            Reserved
+    <div className="footer-bottom">
+      <div className="auto-container">
+        <div className="bottom-inner">
+          <p>
+            &copy; Copyright 2024 <a href="/">Jaycee Bal Mandir School, Mirzapur</a> - All Rights
+            Reserved.
           </p>
+          <ul className="social-links">
+            <li>
+              <a className="flex justify-center items-center" href="/">
+                <LuYoutube strokeWidth="2px" size={24} />
+              </a>
+            </li>
+            <li>
+              <a className="flex justify-center items-center" href="/">
+                <LuFacebook strokeWidth="2px" size={24} />
+              </a>
+            </li>
+            <li>
+              <a className="flex justify-center items-center" href="/">
+                <LuInstagram strokeWidth="2px" size={24} />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div
+    </div>
+    <div
         onClick={handleCall}
         className="text-white bg-blue-800 p-2 flex justify-center cursor-pointer hover:underline text-xs"
       >
@@ -173,7 +204,8 @@ const Footer = () => {
         </p>
         <p></p>
       </div>
-    </footer>
+  </footer>
+  </>
   );
 };
 

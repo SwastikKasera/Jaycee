@@ -92,9 +92,9 @@ const Syllabus = () => {
   };
 
   return (
-    <div className='bg-background'>
+    <div>
       <div className="flex flex-col text-center w-full mb-4">
-        <h1 className="sm:text-5xl text-4xl font-semibold title-font my-4 text-gray-900">
+        <h1 className="sm:text-5xl text-4xl font-semibold title-font my-4 text-white">
           Syllabus
         </h1>
         <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
@@ -104,7 +104,7 @@ const Syllabus = () => {
       <div className="container mx-auto p-6">
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white">
-            <thead className="bg-gray-800 text-white">
+            <thead className="bg-neutral-900 text-white">
               <tr>
                 <th className="py-2 px-4 border-x border-gray-300 text-center w-1/3">Name</th>
                 <th className="py-2 px-4 border-x border-gray-300 text-center w-1/3">Date</th>
@@ -128,16 +128,16 @@ const Syllabus = () => {
                 ))
               ) : (
                 syllabusData.map(syll => (
-                  <tr key={syll.id} className="border-b">
-                    <td className="py-2 px-4 border-x border-gray-300 text-center w-1/3">{syll.attributes.syllabus_name}</td>
-                    <td className="py-2 px-4 border-x border-gray-300 text-center w-1/3">{new Date(syll.attributes.syllabus_date).toLocaleDateString()}</td>
+                  <tr key={syll.id} className="border-b bg-neutral-700">
+                    <td className="py-2 px-4 border-x border-gray-300 text-center text-white w-1/3">{syll.attributes.syllabus_name}</td>
+                    <td className="py-2 px-4 border-x border-gray-300 text-center text-white w-1/3">{new Date(syll.attributes.syllabus_date).toLocaleDateString()}</td>
                     <td className="py-2 px-4 border-x border-gray-300 text-center w-1/3">
                       {syll.attributes.syllabus_media.data && (
                         <Link
                           to={syll.attributes.syllabus_media.data.attributes.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-500 hover:underline block"
+                          className="text-[#ffc847] hover:underline block"
                         >
                           {syll.attributes.syllabus_media.data.attributes.name}
                         </Link>

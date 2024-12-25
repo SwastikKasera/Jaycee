@@ -1,11 +1,31 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AnimatedNavbar from "./components/AnimatedNavbar";
 import Footer from "./components/Footer";
 import ScrollUpButton from "./components/ScrollUpButton";
 import "./App.css";
+import "./styles/css/style.css";
+import "./styles/css/animate.css";
+import "./styles/css/responsive.css";
+import "./styles/css/color.css";
+import "./styles/css/elpath.css";
+import "./styles/css/nice-select.css";
+import "./styles/css/jquery.fancybox.min.css";
+import "./styles/css/owl.css";
+import "./styles/cta.css";
+import "./styles/css/module-css/banner.css";
+import "./styles/css/module-css/about.css";
+import "./styles/css/module-css/service.css";
+import "./styles/css/module-css/chooseus.css";
+import "./styles/css/module-css/clients.css";
+import "./styles/css/module-css/video.css";
+import "./styles/css/module-css/working.css";
+import "./styles/css/module-css/testimonial.css";
+import "./styles/css/module-css/news.css";
+import "./styles/css/module-css/service-details.css";
 
 const Home = lazy(() => import("./pages/Home"));
+const Home2 = lazy(() => import("./pages/HomeNew"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Faculty = lazy(() => import("./pages/Faculty"));
 const NoticeBoard = lazy(() => import("./pages/NoticeBoard"));
@@ -17,19 +37,19 @@ const ImageGallery = lazy(() => import("./pages/ImageGallery"));
 const Founders = lazy(() => import("./pages/Founders"));
 const Members = lazy(() => import("./pages/Members"));
 const FeeStructure = lazy(() => import("./pages/FeeStructure"));
-
 const Cursor = lazy(() => import("./StickyCursor/StickyCursor"));
+
 
 function App() {
   return (
     <div className="relative">
       <BrowserRouter>
         <AnimatedNavbar />
-        <div className="App overflow-x-hidden bg-background">
+        <div className="App overflow-x-hidden bg-[#141416]">
           <Suspense fallback={<div>Loading...</div>}>
             {typeof window !== 'undefined' && window.innerWidth >= 768 && <Cursor />}
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home2 />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/faculty" element={<Faculty />} />
               <Route path="/gallery/images" element={<ImageGallery />} />

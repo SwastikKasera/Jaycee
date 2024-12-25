@@ -1,0 +1,62 @@
+.tf-mouse {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    visibility: hidden
+}
+
+.tf-mouse-inner {
+    margin-left: -5px;
+    margin-top: -5px;
+    width: 8px;
+    height: 8px;
+    z-index: 10000;
+    background-color: #DDF247;
+    -webkit-transition: width .5s ease-in-out, height .5s ease-in-out, margin .5s ease-in-out, opacity .5s ease-in-out;
+    transition: width .5s ease-in-out, height .5s ease-in-out, margin .5s ease-in-out, opacity .5s ease-in-out
+}
+
+.tf-mouse-inner.mouse-hover {
+    margin-left: -40px;
+    margin-top: -40px;
+    width: 80px;
+    height: 80px;
+    background-color: #DDF247;
+    opacity: .3
+}
+
+.tf-mouse-outer {
+    margin-left: -22px;
+    margin-top: -22px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #DDF247;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 10000;
+    opacity: .5;
+    -webkit-transition: all .05s ease-out;
+    transition: all .05s ease-out
+}
+
+.tf-mouse-outer.mouse-hover {
+    opacity: 0
+}
+
+body.background-white .tf-mouse-inner {
+    background-color: rgba(22, 22, 22, 1);
+}
+
+body.background-white .tf-mouse-outer {
+    border-color: rgba(22, 22, 22, 1);
+}
+
+@media (max-width: 991px) {
+    .tf-mouse {
+        display: none
+    }
+}

@@ -1,5 +1,12 @@
-/* Add this to your CSS file */
+:root{
+  --theme-color: #C93537;
+  --secondary-color: #141416;
+  --text-color: #BABABA;
+  --title-color: #fff;
+  --text-font: 'Tenor Sans', sans-serif;
+  --title-font: 'Inter', sans-serif;
+}
+
 .sidebar {
     transition: transform 0.3s ease-in-out;
   }
-  

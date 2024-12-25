@@ -27,17 +27,17 @@ const FeeStructureRow: React.FC<{ item: FeeStructureItem }> = React.memo(({ item
   const relativeTime = useMemo(() => getRelativeTime(item.attributes.updatedAt), [item.attributes.updatedAt]);
 
   return (
-    <tr className="border-b font-karla">
-      <td className="py-2 px-4 text-center border-x border-gray-300">{item.attributes.Name}</td>
-      <td className="py-2 px-4 text-center border-x border-gray-300">{item.attributes.Description}</td>
-      <td className="py-2 px-4 text-center border-x border-gray-300">{relativeTime}</td>
+    <tr className="border-b font-karla bg-neutral-700">
+      <td className="py-2 px-4 text-center text-white border-x border-gray-300">{item.attributes.Name}</td>
+      <td className="py-2 px-4 text-center text-white border-x border-gray-300">{item.attributes.Description}</td>
+      <td className="py-2 px-4 text-center text-white border-x border-gray-300">{relativeTime}</td>
       <td className="py-2 px-4 text-center">
         {item.attributes.File.data && (
           <a
             href={item.attributes.File.data.attributes.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:underline block"
+            className="text-[#ffc847] hover:underline block"
           >
             {item.attributes.File.data.attributes.name}
           </a>
@@ -109,9 +109,9 @@ const FeeStructure: React.FC = () => {
   }, [totalPages]);
 
   return (
-    <div className='bg-background'>
+    <div>
       <div className="flex flex-col text-center w-full mb-4">
-        <h1 className="sm:text-5xl text-4xl font-vidaloka font-semibold title-font my-4 text-gray-900">
+        <h1 className="sm:text-5xl text-4xl font-vidaloka font-semibold title-font my-4 text-white">
           Fees Structure
         </h1>
         <p className="lg:w-2/3 mx-auto font-martel text-lg leading-relaxed">
@@ -121,7 +121,7 @@ const FeeStructure: React.FC = () => {
       <div className="container mx-auto p-6">
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white">
-            <thead className="bg-gray-800 text-white font-martel rounded-md">
+            <thead className="bg-neutral-900 text-white font-martel rounded-md">
               <tr>
                 <th className="py-2 px-4 border-x border-gray-300 text-center">Name</th>
                 <th className="py-2 px-4 border-x border-gray-300 text-center">Description</th>
@@ -151,7 +151,7 @@ const FeeStructure: React.FC = () => {
           <button
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 disabled:opacity-50"
+            className="px-4 py-2 bg-neutral-800 text-white rounded hover:bg-neutral-800/80 disabled:opacity-50"
             aria-label="Previous page"
           >
             Previous
@@ -162,7 +162,7 @@ const FeeStructure: React.FC = () => {
           <button
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 disabled:opacity-50"
+            className="px-4 py-2 bg-neutral-800 text-white rounded hover:bg-gray-400 disabled:opacity-50"
             aria-label="Next page"
           >
             Next

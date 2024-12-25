@@ -12,10 +12,10 @@ import "aos/dist/aos.css";
 
 const GalleryContent = () => {
   return (
-    <div className="w-[450px] z-50 bg-white rounded-lg p-6 shadow-xl flex flex-col gap-4">
+    <div className="w-[450px] z-50 bg-neutral-800 rounded-lg p-6 shadow-xl flex flex-col gap-4">
       <Link
         to="/gallery/images"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">🖼️</span>
         <div>
@@ -27,7 +27,7 @@ const GalleryContent = () => {
       </Link>
       <Link
         to="gallery/videos"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">🎥</span>
         <div>
@@ -43,10 +43,10 @@ const GalleryContent = () => {
 
 const AboutContent = () => {
   return (
-    <div className="w-[450px] z-50 bg-white rounded-lg p-6 shadow-xl flex flex-col gap-4">
+    <div className="w-[450px] z-50 bg-neutral-800 rounded-lg p-6 shadow-xl flex flex-col gap-4">
       <Link
         to="/about/founder"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">👩‍🏫</span>
         <div>
@@ -58,7 +58,7 @@ const AboutContent = () => {
       </Link>
       <Link
         to="/about/members"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">👨‍🏫</span>
         <div>
@@ -70,7 +70,7 @@ const AboutContent = () => {
       </Link>
       <Link
         to="/about/school"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">🏫</span>
         <div>
@@ -87,10 +87,10 @@ const AboutContent = () => {
 
 const AcademicsContent = () => {
   return (
-    <div className="w-[450px] z-10 bg-white rounded-lg p-6 shadow-xl flex flex-col gap-4">
+    <div className="w-[450px] z-10 bg-neutral-800 rounded-lg p-6 shadow-xl flex flex-col gap-4">
       <Link
         to="/faculty"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">🎓</span>
         <div>
@@ -102,7 +102,7 @@ const AcademicsContent = () => {
       </Link>
       <Link
         to="/syllabus"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">📝</span>
         <div>
@@ -114,7 +114,7 @@ const AcademicsContent = () => {
       </Link>
       <Link
         to="/noticeboard"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">🚨</span>
         <div>
@@ -126,7 +126,7 @@ const AcademicsContent = () => {
       </Link>
       <Link
         to="/fee-structure"
-        className="flex items-center gap-4 hover:bg-secondary hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
+        className="flex items-center gap-4 hover:bg-neutral-900 hover:text-white border border-secondary transition-colors rounded-xl cursor-pointer p-4"
       >
         <span className="text-2xl">📃</span>
         <div>
@@ -165,7 +165,7 @@ const AnimatedNavbar = () => {
 
   return (
     <>
-      <div className="bg-secondary flex w-full justify-between items-center py-1 px-2">
+      <div className="bg-black flex w-full justify-between items-center py-1 px-2">
         <Link to="/" className="w-fit flex justify-start items-center gap-2">
           <img src={logo} className="w-14" alt="" />
           <h1 className="text-white font-karla text-center md:text-2xl text-base">
@@ -219,13 +219,14 @@ const AnimatedNavbar = () => {
           data-aos="fade-left"
           data-aos-delay="300"
         >
-          <Button
+          {/* <Button
             onClick={handleCall}
             hasIcon={true}
             icon={<LuPhone />}
             text="Enquire Now"
             styles="text-xs md:text-base"
-          />
+          /> */}
+          <div className="btn-box light mr_30"><a href="/" onClick={handleCall} className="theme-btn"><span>Enquire Now</span></a></div>
           <div className="block lg:hidden">
             <SidebarButton
               isOpen={isSidebarOpen}

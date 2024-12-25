@@ -1,30 +1,70 @@
 // StickyCursor.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import "../styles/stickyCursor.css"
 
 const StickyCursor: React.FC = () => {
-  const [position, setPosition] = useState({ x: -100, y: -100 }); // Start off-screen
-
   useEffect(() => {
-    const updatePosition = (ev: MouseEvent) => {
-      setPosition({ x: ev.clientX, y: ev.clientY });
-    };
+    const mouseOuter = document.querySelector(".tf-mouse-outer") as HTMLDivElement;
+    const mouseInner = document.querySelector(".tf-mouse-inner") as HTMLDivElement;
 
-    window.addEventListener('mousemove', updatePosition);
+    if (mouseOuter && mouseInner) {
+      let mouseX = 0;
+      let mouseY = 0;
+      let isHovering = false;
 
-    return () => {
-      window.removeEventListener('mousemove', updatePosition);
-    };
+      // Move cursors based on mouse position
+      const handleMouseMove = (e: MouseEvent) => {
+        if (!isHovering) {
+          mouseOuter.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        }
+        mouseInner.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      };
+
+      // Add hover effect on specific elements
+      const handleMouseEnter = () => {
+        mouseInner.classList.add("mouse-hover");
+        mouseOuter.classList.add("mouse-hover");
+        isHovering = true;
+      };
+
+      const handleMouseLeave = () => {
+        mouseInner.classList.remove("mouse-hover");
+        mouseOuter.classList.remove("mouse-hover");
+        isHovering = false;
+      };
+
+      // Attach global mousemove listener
+      window.addEventListener("mousemove", handleMouseMove);
+
+      // Attach hover listeners for target elements
+      const targets = document.querySelectorAll("a, .canvas, .progress-wrap, .wishlist-button");
+      targets.forEach((target) => {
+        target.addEventListener("mouseenter", handleMouseEnter);
+        target.addEventListener("mouseleave", handleMouseLeave);
+      });
+
+      // Make cursors visible
+      mouseInner.style.visibility = "visible";
+      mouseOuter.style.visibility = "visible";
+
+      // Cleanup event listeners on unmount
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+        targets.forEach((target) => {
+          target.removeEventListener("mouseenter", handleMouseEnter);
+          target.removeEventListener("mouseleave", handleMouseLeave);
+        });
+      };
+    }
   }, []);
 
   return (
-    <div 
-      className="fixed w-4 h-4 rounded-full bg-accent pointer-events-none z-50"
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        transform: 'translate(-50%, -50%)'  // Center the cursor on the mouse pointer
-      }}
-    />
+    <>
+    <div className="tf-mouse tf-mouse-outer"></div>
+    <div className="tf-mouse tf-mouse-inner"></div>
+    </>
   );
 };
 
