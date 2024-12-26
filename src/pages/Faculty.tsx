@@ -21,7 +21,7 @@ interface FacultyDataFormat {
 
 const FacultyCard: React.FC<{ faculty: FacultyDataFormat }> = React.memo(({ faculty }) => (
   <div className="p-4 md:w-1/2 w-full">
-    <div className="h-full bg-neutral-50 p-6 rounded">
+    <div className="h-full bg-neutral-700 p-6 rounded">
       <div className="flex justify-between items-start w-full">
         <div className="flex justify-start items-start">
           <img
@@ -31,18 +31,18 @@ const FacultyCard: React.FC<{ faculty: FacultyDataFormat }> = React.memo(({ facu
             loading="lazy"
           />
           <span className="flex-grow flex flex-col pl-4">
-            <span className="title-font font-semibold text-black text-lg font-karla">
+            <span className="title-font font-semibold text-[#ffc847] text-lg font-karla">
               {faculty.facultyName}
             </span>
-            <span className="text-secondary text-sm font-martel">{faculty.facultyQualification}</span>
+            <span className="text-white text-sm font-martel">{faculty.facultyQualification}</span>
           </span>
         </div>
         <div className="flex justify-center items-center gap-2">
-          <p className="bg-primary w-fit px-2 py-1 rounded-full text-background font-karla">{faculty.facultyPosition}</p>
+          <p className="bg-[#ffc847] w-fit px-2 py-1 rounded-full text-black font-bold font-karla">{faculty.facultyPosition}</p>
         </div>
       </div>
       <div>
-        <p className="pt-2 font-karla">{faculty.facultyBio}</p>
+        <p className="pt-2 text-white font-karla">{faculty.facultyBio}</p>
       </div>
     </div>
   </div>
@@ -89,9 +89,9 @@ const Faculty: React.FC = () => {
   }, [fetchImages]);
 
   return (
-    <div className="container px-5 py-24 w-full mx-auto bg-background">
-      <div className="flex flex-col text-center w-full mb-20">
-        <h1 className="sm:text-5xl md:6xl font-vidaloka text-4xl font-semibold title-font mb-4 text-gray-900">
+    <div className="lg:px-5 lg:py-24 w-full mx-auto">
+      <div className="flex flex-col text-center w-full mb-20 mt-10">
+        <h1 className="sm:text-5xl md:6xl font-vidaloka text-4xl font-semibold title-font mb-4 text-[#ffc847]">
           Our Faculty
         </h1>
         <p className="lg:w-2/3 mx-auto leading-relaxed text-lg font-martel">
@@ -99,12 +99,12 @@ const Faculty: React.FC = () => {
         </p>
       </div>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 mx-auto">
+        <div className="container lg:px-5 px-2 mx-auto">
           <div className="flex flex-wrap -m-4">
             {loading ? (
               Array.from({ length: 6 }).map((_, index) => (
                 <div key={index} className="p-4 md:w-1/2 w-full">
-                  <div className="h-full bg-neutral-50 p-6 rounded">
+                  <div className="h-full bg-neutral-700 p-6 rounded">
                     <div className="flex justify-between items-start w-full">
                       <div className="flex justify-start items-start">
                         <Skeleton circle={true} height={64} width={64} />

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "./Button";
 import logo from "../assets/logo.svg";
-import { LuPhone } from "react-icons/lu";
 import AnimatedDropdown from "./AnimatedDropdown";
 import { IoChevronDown } from "react-icons/io5";
 import { SidebarButton } from "./SidebarButton";
@@ -219,14 +217,7 @@ const AnimatedNavbar = () => {
           data-aos="fade-left"
           data-aos-delay="300"
         >
-          {/* <Button
-            onClick={handleCall}
-            hasIcon={true}
-            icon={<LuPhone />}
-            text="Enquire Now"
-            styles="text-xs md:text-base"
-          /> */}
-          <div className="btn-box light mr_30"><a href="/" onClick={handleCall} className="theme-btn"><span>Enquire Now</span></a></div>
+          <div className="btn-box hidden lg:block light mr_30"><a href="/" onClick={handleCall} className="theme-btn"><span>Enquire Now</span></a></div>
           <div className="block lg:hidden">
             <SidebarButton
               isOpen={isSidebarOpen}
