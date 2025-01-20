@@ -157,10 +157,6 @@ const AnimatedNavbar = () => {
     AOS.init();
   }, []);
 
-  const handleCall = () => {
-    window.location.href = `tel:+919415679969`;
-  };
-
   return (
     <>
       <div className="bg-black flex w-full justify-between items-center py-1 px-2">
@@ -217,7 +213,7 @@ const AnimatedNavbar = () => {
           data-aos="fade-left"
           data-aos-delay="300"
         >
-          <div className="btn-box hidden lg:block light mr_30"><a href="/" onClick={handleCall} className="theme-btn"><span>Enquire Now</span></a></div>
+          <div className="btn-box hidden lg:block light mr_30"><a href="https://wa.me/+919415679969" target="_blank" className="theme-btn"><span>Enquire Now</span></a></div>
           <div className="block lg:hidden">
             <SidebarButton
               isOpen={isSidebarOpen}

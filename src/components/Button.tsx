@@ -22,7 +22,7 @@ const Button: React.FC<ButtonInt> = ({
   return (
     <button
       onClick={onClick}
-      className={`bg-primary font-karla px-3 py-2 flex justify-center items-center gap-2 rounded-full text-white ${styles} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} `}
+      className={`font-karla px-3 py-2 flex justify-center items-center gap-2 rounded-full text-black ${styles} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} `}
       type={type}
       disabled={disabled}
     >

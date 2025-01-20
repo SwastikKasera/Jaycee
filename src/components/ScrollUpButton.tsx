@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/scrollUpButton.css";
+import { BsWhatsapp } from 'react-icons/bs';
 
 const ScrollUpButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,6 +42,7 @@ const ScrollUpButton: React.FC = () => {
   };
 
   return (
+    <>
     <div
       className={`progress-wrap ${isVisible ? 'active-progress' : ''}`}
       onClick={scrollToTop}
@@ -61,6 +63,7 @@ const ScrollUpButton: React.FC = () => {
         ></path>
       </svg>
     </div>
+    </>
   );
 };
 

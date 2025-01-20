@@ -108,7 +108,7 @@ const VideoGallery: React.FC = () => {
 
           return (
             <div key={video.id}>
-              <div className="p-4 bg-white rounded-lg shadow-lg">
+              <div className="p-4 bg-neutral-800 rounded-lg shadow-lg">
                 {videoId && (
                   <div className="mb-2">
                     <iframe
@@ -123,11 +123,11 @@ const VideoGallery: React.FC = () => {
                     ></iframe>
                   </div>
                 )}
-                <h2 className="text-xl flex justify-between w-full font-bold mb-2">
+                <p className="flex text-xs justify-center items-center rounded-md p-1 gap-1 text-[##ffc847] bg-neutral-950">
+                  <RiUploadCloud2Line />{formatDate(video.attributes.publishedAt)}
+                </p>
+                <h2 className="text-xl flex mt-3 justify-between w-full font-bold mb-2">
                   {video.attributes.videoName}
-                  <p className="flex text-xs justify-center items-center rounded-md p-1 gap-1 text-purple-800 bg-purple-200">
-                    <RiUploadCloud2Line />{formatDate(video.attributes.publishedAt)}
-                  </p>
                 </h2>
                 {video.attributes.videoDescrption && (
                   <div className="mb-2">
@@ -142,7 +142,7 @@ const VideoGallery: React.FC = () => {
                     )}
                   </div>
                 )}
-                <Button styles='w-full bg-secondary' text='Watch on Youtube' onClick={() => openLinkInNewTab(video.attributes.videoLink)} />
+                <Button styles='w-full bg-[#ffc847] text-black font-bold' text='Watch on Youtube' onClick={() => openLinkInNewTab(video.attributes.videoLink)} />
               </div>
             </div>
           );

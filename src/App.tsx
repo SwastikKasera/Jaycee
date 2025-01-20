@@ -23,6 +23,7 @@ import "./styles/css/module-css/working.css";
 import "./styles/css/module-css/testimonial.css";
 import "./styles/css/module-css/news.css";
 import "./styles/css/module-css/service-details.css";
+import { BsWhatsapp } from "react-icons/bs";
 
 const Home = lazy(() => import("./pages/Home"));
 const Home2 = lazy(() => import("./pages/HomeNew"));
@@ -66,6 +67,17 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
+      <div className="fixed right-7 bottom-20 rounded-full bg-green-500 p-3 shadow-lg hover:bg-green-600 transition duration-300">
+      <a 
+        href="https://wa.me/+919415679969" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        aria-label="Chat on WhatsApp"
+        className="flex items-center justify-center text-white text-xl"
+      >
+        <BsWhatsapp />
+      </a>
+    </div>
       <ScrollUpButton />
     </div>
   );

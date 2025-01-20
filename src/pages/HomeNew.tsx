@@ -43,6 +43,7 @@ import icon17 from "../styles/images/icons/icon-17.png"
 import icon20 from "../styles/images/icons/icon-20.png"
 import icon30 from "../styles/images/icons/icon-30.png"
 import videoBg from "../assets/bg.jpg"
+import heroImg from "../assets/hero_img.png"
 import { LuMoveUpRight } from "react-icons/lu";
 
 const Home: React.FC = () => {
@@ -309,8 +310,8 @@ const Home: React.FC = () => {
                 <p>
                 Discover a world of learning, creativity, and excellence at Jaycee—where every student’s potential is nurtured and dreams take flight.
                 </p>
-                <figure className="image">
-                  <img src={banner1} alt="" />
+                <figure className="image flex justify-center lg:block">
+                  <img src={heroImg} className="md:w-[250px] w-[200px]" alt="" />
                 </figure>
               </div>
               <div className="video-btn">

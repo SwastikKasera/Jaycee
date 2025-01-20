@@ -11,6 +11,7 @@ import shape58 from "../styles/images/shape/shape-58.png";
 import shape43 from "../styles/images/shape/shape-43.png";
 import "../styles/css/module-css/contact.css"
 import "../styles/css/module-css/page-title.css"
+import { BsWhatsapp } from 'react-icons/bs';
 
 const Contact: React.FC = () => {
   useEffect(() => {
@@ -136,6 +137,7 @@ const Contact: React.FC = () => {
                                     <li><a className='justify-center items-center' style={{display:"flex"}} href="contact.html"><LuInstagram/></a></li>
                                     <li><a className='justify-center items-center' style={{display:"flex"}} href="contact.html"><LuYoutube/></a></li>
                                     <li><a className='justify-center items-center' style={{display:"flex"}} href="contact.html"><LuFacebook/></a></li>
+                                    <li><a className='justify-center items-center' style={{display:"flex"}} href="https://wa.me/+919415679969"><BsWhatsapp/></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -143,9 +145,6 @@ const Contact: React.FC = () => {
                 </div>
             </div>
         </section>
-        
-
-
         
         <section className="contact-section pb_120">
             <div className="auto-container">
