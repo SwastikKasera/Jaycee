@@ -6,7 +6,7 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
-    "build": "strapi build",
+    "build": "npm install mysql --save && strapi build",
     "strapi": "strapi"
   },
   "dependencies": {
