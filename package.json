@@ -15,16 +15,14 @@
     "@strapi/plugin-users-permissions": "4.22.0",
     "@strapi/provider-upload-cloudinary": "^4.25.0",
     "@strapi/strapi": "4.22.0",
-    "googleapis": "^144.0.0",
     "mysql": "^2.18.1",
-    "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "styled-components": "5.3.3"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Swastik Kasera"
   },
   "strapi": {
     "uuid": "1a63118b-0aa3-4e25-b63c-8396a878a395"
