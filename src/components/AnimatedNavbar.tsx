@@ -223,6 +223,10 @@ const AnimatedNavbar = () => {
           </div>
         </div>
       </div>
+        <div className="bg-black py-1 sm:py-2 flex flex-col sm:flex-row justify-center items-center text-sm sm:text-base lg:text-xl text-white px-2">
+        <span className="text-center">Jaycee Bal Mandir School</span>
+        <span className="text-yellow-500 sm:ml-1 text-center">- An English Medium Co-Educational Institution</span>
+      </div>
       <Sidebar
         isOpen={isSidebarOpen}
         setIsOpen={setIsSidebarOpen}

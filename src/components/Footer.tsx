@@ -7,6 +7,7 @@ import image24 from "../styles/images/shape/shape-24.png";
 import image25 from "../styles/images/shape/shape-25.png";
 import jcilogo from "../assets/jci.png";
 import { LuFacebook, LuInstagram, LuMail, LuMapPin, LuPhone, LuYoutube } from "react-icons/lu";
+import { Link } from "react-router-dom";
 const Footer = () => {
 
   const handleCall = () => {
@@ -58,7 +59,7 @@ const Footer = () => {
                 placerat nequ puru rhoncu tincidunt odio ultrices.
               </p>
               <h3>
-                <a href="/">info@jaycee.com</a>
+                <Link to="/">info@jayceebalmandir.com</Link>
               </h3>
             </div>
           </div>
@@ -70,19 +71,19 @@ const Footer = () => {
               <div className="widget-content">
                 <ul className="links-list clearfix">
                   <li>
-                    <a href="/">Noticeboard</a>
+                    <Link to="/noticeboard">Noticeboard</Link>
                   </li>
                   <li>
-                    <a href="/">Admission</a>
+                    <Link to="/admission">Admission</Link>
                   </li>
                   <li>
-                    <a href="/">Faculty</a>
+                    <Link to="/faculty">Faculty</Link>
                   </li>
                   <li>
-                    <a href="/">Contact Us</a>
+                    <Link to="/contact">Contact Us</Link>
                   </li>
                   <li>
-                    <a href="/">Gallery</a>
+                    <Link to="/gallery/images">Gallery</Link>
                   </li>
                 </ul>
               </div>
@@ -91,24 +92,24 @@ const Footer = () => {
           <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
             <div className="footer-widget links-widget">
               <div className="widget-title">
-                <h3>Services</h3>
+                <h3>Explore</h3>
               </div>
               <div className="widget-content">
                 <ul className="links-list clearfix">
                   <li>
-                    <a href="/">Our Faculty</a>
+                    <Link to="/faculty">Our Faculty</Link>
                   </li>
                   <li>
-                    <a href="/">Acedemics</a>
+                    <Link to="/syllabus">Syllabus</Link>
                   </li>
                   <li>
-                    <a href="/">Founder</a>
+                    <Link to="/founder/school">Founder</Link>
                   </li>
                   <li>
-                    <a href="/">Fee Structure</a>
+                    <Link to="/fee-structure">Fee Structure</Link>
                   </li>
                   <li>
-                    <a href="https://jayceeapi.onrender.com/admin">Admin</a>
+                    <Link to="https://jayceeapi.onrender.com/admin">Admin</Link>
                   </li>
                 </ul>
               </div>
@@ -127,10 +128,10 @@ const Footer = () => {
                   Mussafarganj, Mirzapur, Uttar Pradesh 231001
                 </p>
                 <p className="flex justify-start items-center gap-2">
-                  <LuPhone/> 05442 - 220 - 531
+                  <LuPhone/> +91 94156 79969
                 </p>
                 <p className="flex justify-start items-center gap-2">
-                  <LuMail/> info@jaycee.com
+                  <LuMail/> info@jayceebalmandir.com
                 </p>
               </div>
             </div>
@@ -176,19 +177,19 @@ const Footer = () => {
           </p>
           <ul className="social-links">
             <li>
-              <a className="flex justify-center items-center" href="/">
+              <Link className="flex justify-center items-center" to="https://www.youtube.com/@jayceebalmandirmusaffargan6756">
                 <LuYoutube strokeWidth="2px" size={24} />
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="flex justify-center items-center" href="/">
+              <Link className="flex justify-center items-center" to="https://www.facebook.com/jayceebal.mandir">
                 <LuFacebook strokeWidth="2px" size={24} />
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="flex justify-center items-center" href="/">
+              <Link className="flex justify-center items-center" to="https://www.instagram.com/jayceebalmandir1964/">
                 <LuInstagram strokeWidth="2px" size={24} />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

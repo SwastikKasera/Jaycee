@@ -25,7 +25,7 @@ import schoolPic1 from "../assets/school_pic_1.jpg"
 import principlePic from "../assets/sqp.jpg"
 import chooseUs2 from "../assets/choose_2.jpg"
 import chooseUs3 from "../assets/choose_3.jpg"
-import icon2 from "../styles/images/icons/icon-2.png"
+import icon2 from "../assets/sixty_years.png"
 import icon4 from "../styles/images/icons/icon-4.png"
 import icon5 from "../styles/images/icons/icon-5.png"
 import icon6 from "../styles/images/icons/icon-6.png"
@@ -44,6 +44,13 @@ import icon20 from "../styles/images/icons/icon-20.png"
 import icon30 from "../styles/images/icons/icon-30.png"
 import videoBg from "../assets/bg.jpg"
 import heroImg from "../assets/hero_img.png"
+import glimpse1 from "../assets/glimpse_1.jpg"
+import glimpse2 from "../assets/glimpse_2.jpg"
+import glimpse3 from "../assets/glimpse_3.jpg"
+import glimpse4 from "../assets/glimpse_4.jpg"
+import glimpse5 from "../assets/glimpse_5.jpg"
+import glimpse6 from "../assets/glimpse_6.jpg"
+import glimpse7 from "../assets/glimpse_7.jpg"
 import { LuMoveUpRight } from "react-icons/lu";
 
 const Home: React.FC = () => {
@@ -293,7 +300,7 @@ const Home: React.FC = () => {
             <div className="content-box">
               <div className="curve-text">
                 <div className="icon-box">
-                  <img src={icon2} alt="" />
+                  <img className="w-20" src={icon2} alt="" />
                 </div>
                 <div
                   className="shape img_yellow_filter"
@@ -342,10 +349,6 @@ const Home: React.FC = () => {
                 </div>
                 <div className="col-lg-3 col-md-12 col-sm-12 text-column">
                   <div className="text-box mt_35">
-                    <p>
-                      Lorem ipsum dolor amet, consectetur adipiscing elit.
-                      Maecenas vulputat leo nec enim efficitur.
-                    </p>
                   </div>
                 </div>
               </div>
@@ -395,8 +398,8 @@ const Home: React.FC = () => {
                           <img className="img_black_filter" src={icon6} alt="" />
                         </div>
                         <p className="text-black">
-                          Child Safety <br />
-                          24/7 Surveillance
+                        Holistic Development <br />
+                        Beyond Academics
                         </p>
                       </div>
                     </div>
@@ -616,11 +619,6 @@ const Home: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="more-link">
-                      <a href="/">
-                        <span>About Me More</span>
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -634,7 +632,7 @@ const Home: React.FC = () => {
               <div className="icon-box">
                 <img className="img_yellow_filter" src={icon7} alt="" />
               </div>
-              <h2>Recent Works Gallery</h2>
+              <h2>Event Glimse & Highlights</h2>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry the <br />
@@ -648,7 +646,7 @@ const Home: React.FC = () => {
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <img src="assets/images/project/gallery-1.jpg" alt="" />
+                      <img src={glimpse1} alt="" />
                     </figure>
                     <div className="link-btn">
                       <a href="/">
@@ -657,13 +655,7 @@ const Home: React.FC = () => {
                     </div>
                   </div>
                   <div className="lower-content">
-                    <div className="link">
-                      <a href="/">Web Design</a>
-                    </div>
-                    <p>December 12, 2023</p>
-                    <h3>
-                      <a href="/">Architecture mockup</a>
-                    </h3>
+                    <p className="text-white font-bold mt-2">Inaugration Ceremony</p>
                   </div>
                 </div>
               </div>
@@ -671,7 +663,7 @@ const Home: React.FC = () => {
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <img src="assets/images/project/gallery-2.jpg" alt="" />
+                      <img src={glimpse2} alt="" />
                     </figure>
                     <div className="link-btn">
                       <a href="/">
@@ -680,13 +672,7 @@ const Home: React.FC = () => {
                     </div>
                   </div>
                   <div className="lower-content">
-                    <div className="link">
-                      <a href="/">Web Design</a>
-                    </div>
-                    <p>December 12, 2023</p>
-                    <h3>
-                      <a href="/">Buttle Design</a>
-                    </h3>
+                    <p className="text-white font-bold mt-2">Diwali Celebration</p>
                   </div>
                 </div>
               </div>
@@ -694,7 +680,7 @@ const Home: React.FC = () => {
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <img src="assets/images/project/gallery-3.jpg" alt="" />
+                      <img src={glimpse3} alt="" />
                     </figure>
                     <div className="link-btn">
                       <a href="/">
@@ -703,13 +689,7 @@ const Home: React.FC = () => {
                     </div>
                   </div>
                   <div className="lower-content">
-                    <div className="link">
-                      <a href="/">UX/UI</a>
-                    </div>
-                    <p>December 12, 2023</p>
-                    <h3>
-                      <a href="/">card Design</a>
-                    </h3>
+                    <p className="text-white font-bold mt-2">Independence Day Celebration</p>
                   </div>
                 </div>
               </div>
@@ -717,7 +697,7 @@ const Home: React.FC = () => {
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <img src="assets/images/project/gallery-4.jpg" alt="" />
+                      <img src={glimpse4} alt="" />
                     </figure>
                     <div className="link-btn">
                       <a href="/">
@@ -726,13 +706,7 @@ const Home: React.FC = () => {
                     </div>
                   </div>
                   <div className="lower-content">
-                    <div className="link">
-                      <a href="/">UX/UI</a>
-                    </div>
-                    <p>December 12, 2023</p>
-                    <h3>
-                      <a href="/">Logo Design</a>
-                    </h3>
+                    <p className="text-white font-bold mt-2">Republic Day Celebration</p>
                   </div>
                 </div>
               </div>
@@ -765,14 +739,11 @@ const Home: React.FC = () => {
                         alt=""
                       />
                     </figure>
-                    <h3>DL. David Laurok Hank</h3>
-                    <span className="designation">UX/UI Specialist</span>
+                    <h3>Mr. Subash Sharma</h3>
+                    <span className="designation">Parent / Guardian</span>
                   </div>
                   <p>
-                    Phasellus eget mollis enim. Nunc fringilla at est at
-                    placerat. Vestibulum semper tincidu dictum. Duis sed ligula
-                    sed tellus mattis viverra ut vel lectus. Pellentesque
-                    sollicitudin.
+                    As a parent, I have always prioritized my child's education. This school has provided a nurturing and supportive environment where my child feels safe to explore and learn. The teachers are dedicated and approachable, making communication easy. I couldn't have asked for a better place for my child to grow.
                   </p>
                   <div className="clients-logo">
                     <img src="assets/images/clients/clients-1.png" alt="" />
@@ -791,14 +762,15 @@ const Home: React.FC = () => {
                         alt=""
                       />
                     </figure>
-                    <h3>Didarul Kairan K.l.</h3>
-                    <span className="designation">UX/UI Specialist</span>
+                    <h3>Mr. Ahmed Khan</h3>
+                    <span className="designation">Parent / Guardian</span>
                   </div>
                   <p>
-                    Phasellus eget mollis enim. Nunc fringilla at est at
-                    placerat. Vestibulum semper tincidu dictum. Duis sed ligula
-                    sed tellus mattis viverra ut vel lectus. Pellentesque
-                    sollicitudin.
+                  I am impressed not only by the academic curriculum
+                   but also by the emphasis on holistic development. 
+                   The school encourages extracurricular activities that
+                    help in building confidence and teamwork. My daughter has 
+                    blossomed here, participating in arts and sports, and I am grateful for that.
                   </p>
                   <div className="clients-logo">
                     <img src="assets/images/clients/clients-2.png" alt="" />
@@ -817,14 +789,11 @@ const Home: React.FC = () => {
                         alt=""
                       />
                     </figure>
-                    <h3>DL. David Laurok Hank</h3>
-                    <span className="designation">UX/UI Specialist</span>
+                    <h3>Mr. Atul Patel</h3>
+                    <span className="designation">Parent / Guardian</span>
                   </div>
                   <p>
-                    Phasellus eget mollis enim. Nunc fringilla at est at
-                    placerat. Vestibulum semper tincidu dictum. Duis sed ligula
-                    sed tellus mattis viverra ut vel lectus. Pellentesque
-                    sollicitudin.
+                  This school instills strong values and ethics in our children. It is reassuring to see my son learning about respect, honesty, and compassion alongside his studies.
                   </p>
                   <div className="clients-logo">
                     <img src="assets/images/clients/clients-1.png" alt="" />
@@ -843,14 +812,11 @@ const Home: React.FC = () => {
                         alt=""
                       />
                     </figure>
-                    <h3>Didarul Kairan K.l.</h3>
-                    <span className="designation">UX/UI Specialist</span>
+                    <h3>Mr. Yash Kumar</h3>
+                    <span className="designation">Parent / Guardian</span>
                   </div>
                   <p>
-                    Phasellus eget mollis enim. Nunc fringilla at est at
-                    placerat. Vestibulum semper tincidu dictum. Duis sed ligula
-                    sed tellus mattis viverra ut vel lectus. Pellentesque
-                    sollicitudin.
+                  I love how this school values open communication with parents. Regular meetings and updates keep us informed about our child's progress and school activities. It makes me feel involved in my child's education, and I appreciate that transparency.
                   </p>
                   <div className="clients-logo">
                     <img src="assets/images/clients/clients-2.png" alt="" />
@@ -869,14 +835,11 @@ const Home: React.FC = () => {
                         alt=""
                       />
                     </figure>
-                    <h3>DL. David Laurok Hank</h3>
-                    <span className="designation">UX/UI Specialist</span>
+                    <h3>Mrs Khushi Kumari</h3>
+                    <span className="designation">Parent / Guardian</span>
                   </div>
                   <p>
-                    Phasellus eget mollis enim. Nunc fringilla at est at
-                    placerat. Vestibulum semper tincidu dictum. Duis sed ligula
-                    sed tellus mattis viverra ut vel lectus. Pellentesque
-                    sollicitudin.
+                  In today&apos;s competitive world, I want my child to be prepared for future challenges. This school has a great approach to critical thinking and problem-solving skills, which I believe are essential for success. I am confident that my child is in the right hands.
                   </p>
                   <div className="clients-logo">
                     <img src="assets/images/clients/clients-1.png" alt="" />
@@ -895,14 +858,11 @@ const Home: React.FC = () => {
                         alt=""
                       />
                     </figure>
-                    <h3>Didarul Kairan K.l.</h3>
-                    <span className="designation">UX/UI Specialist</span>
+                    <h3>Mr. & Mrs. Singh</h3>
+                    <span className="designation">Parent / Guardian</span>
                   </div>
                   <p>
-                    Phasellus eget mollis enim. Nunc fringilla at est at
-                    placerat. Vestibulum semper tincidu dictum. Duis sed ligula
-                    sed tellus mattis viverra ut vel lectus. Pellentesque
-                    sollicitudin.
+                  I have seen a remarkable improvement in my child&apso;s academic performance since enrolling him in this school. The strong academic foundation provided by dedicated teachers is commendable. I am proud to see my son excelling in his studies and developing a love for learning.
                   </p>
                   <div className="clients-logo">
                     <img src="assets/images/clients/clients-2.png" alt="" />
@@ -921,14 +881,11 @@ const Home: React.FC = () => {
                         alt=""
                       />
                     </figure>
-                    <h3>DL. David Laurok Hank</h3>
-                    <span className="designation">UX/UI Specialist</span>
+                    <h3>Mrs. Gupta</h3>
+                    <span className="designation">Parent / Guardian</span>
                   </div>
                   <p>
-                    Phasellus eget mollis enim. Nunc fringilla at est at
-                    placerat. Vestibulum semper tincidu dictum. Duis sed ligula
-                    sed tellus mattis viverra ut vel lectus. Pellentesque
-                    sollicitudin.
+                  My son has been studying here for the past three years, and I have seen significant improvement in his academics. The teachers are very supportive, and they make learning enjoyable. I'm happy with his progress.
                   </p>
                   <div className="clients-logo">
                     <img src="assets/images/clients/clients-1.png" alt="" />
@@ -947,14 +904,11 @@ const Home: React.FC = () => {
                         alt=""
                       />
                     </figure>
-                    <h3>Didarul Kairan K.l.</h3>
-                    <span className="designation">UX/UI Specialist</span>
+                    <h3>Mrs. Sharma</h3>
+                    <span className="designation">Parent / Guardian</span>
                   </div>
                   <p>
-                    Phasellus eget mollis enim. Nunc fringilla at est at
-                    placerat. Vestibulum semper tincidu dictum. Duis sed ligula
-                    sed tellus mattis viverra ut vel lectus. Pellentesque
-                    sollicitudin.
+                  I appreciate the variety of extracurricular activities offered here. My son has developed a keen interest in sports and music. It's great to see him balancing studies with hobbies. This school encourages all-round development
                   </p>
                   <div className="clients-logo">
                     <img src="assets/images/clients/clients-2.png" alt="" />
@@ -1012,7 +966,7 @@ const Home: React.FC = () => {
               <div className="curve-text">
                 <div className="icon-box">
                   <a href="/" className="lightbox-image" data-caption="">
-                    <i className="icon-3"></i>
+                    <img className="w-20" src={icon2} alt="" />
                   </a>
                 </div>
                 <div
@@ -1034,11 +988,10 @@ const Home: React.FC = () => {
               <div className="icon-box">
                 <img src={icon7} className="img_yellow_filter" alt="" />
               </div>
-              <h2>Our Approach</h2>
+              <h2>Our Approach to Education</h2>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry the <br />
-                standard dummy text ever since the when an printer took.
+              At our school, we believe in nurturing young minds through a balanced approach to education. <br />
+              Our methods are designed to foster both academic excellence and personal growth.
               </p>
             </div>
             <div className="row clearfix">
@@ -1053,12 +1006,12 @@ const Home: React.FC = () => {
                       </div>
                     </div>
                     <h3>
-                      <a href="/">Research Subject</a>
+                      <a href="/">Research-Based Learning</a>
                     </h3>
                     <span className="step-text">First Approach</span>
                     <p>
-                      Phasellus eget mollis enim. Nunc fringilla at est at
-                      placerat. Vestibulum semper tincidu dictum.
+                    We emphasize <strong>research-based learning</strong>, encouraging students to explore subjects deeply 
+                    and develop critical thinking skills. This approach prepares them for real-world challenges.
                     </p>
                   </div>
                 </div>
@@ -1074,12 +1027,12 @@ const Home: React.FC = () => {
                       </div>
                     </div>
                     <h3>
-                      <a href="/">Working Subject</a>
+                      <a href="/">Hands-On Learning</a>
                     </h3>
                     <span className="step-text">2nd Approach</span>
                     <p>
-                      Phasellus eget mollis enim. Nunc fringilla at est at
-                      placerat. Vestibulum semper tincidu dictum.
+                    Our <strong>hands-on learning</strong> approach allows students to engage with the material actively, 
+                    making education more enjoyable and effective. We incorporate practical activities in our curriculum.
                     </p>
                   </div>
                 </div>
@@ -1095,12 +1048,12 @@ const Home: React.FC = () => {
                       </div>
                     </div>
                     <h3>
-                      <a href="/">Published Subject</a>
+                      <a href="/">Character Development</a>
                     </h3>
                     <span className="step-text">3rd Approach</span>
                     <p>
-                      Phasellus eget mollis enim. Nunc fringilla at est at
-                      placerat. Vestibulum semper tincidu dictum.
+                    We focus on <strong>character development</strong>, teaching values such as respect, empathy, and responsibility. 
+                    Our goal is to shape well-rounded individuals who contribute positively to society.
                     </p>
                   </div>
                 </div>

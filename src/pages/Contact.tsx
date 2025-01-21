@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                                     <li>
                                         <div className="icon-box flex justify-center items-center"><LuMail className='text-black' size={26}/></div>
                                         <span>Our Email</span>
-                                        <h3><a href="mailto:Help.info@gmail.com">info@jaycee.com</a></h3>
+                                        <h3><a href="mailto:Help.info@gmail.com">info@jayceebalmandir.com</a></h3>
                                     </li>
                                     <li>
                                         <div className="icon-box flex justify-center items-center"><LuMapPin className='text-black' size={26}/></div>
@@ -134,9 +134,9 @@ const Contact: React.FC = () => {
                                     </li>
                                 </ul>
                                 <ul className="social-links clearfix">
-                                    <li><a className='justify-center items-center' style={{display:"flex"}} href="contact.html"><LuInstagram/></a></li>
-                                    <li><a className='justify-center items-center' style={{display:"flex"}} href="contact.html"><LuYoutube/></a></li>
-                                    <li><a className='justify-center items-center' style={{display:"flex"}} href="contact.html"><LuFacebook/></a></li>
+                                    <li><a className='justify-center items-center' style={{display:"flex"}} href="https://www.instagram.com/jayceebalmandir1964/"><LuInstagram/></a></li>
+                                    <li><a className='justify-center items-center' style={{display:"flex"}} href="https://www.youtube.com/@jayceebalmandirmusaffargan6756"><LuYoutube/></a></li>
+                                    <li><a className='justify-center items-center' style={{display:"flex"}} href="https://www.facebook.com/jayceebal.mandir"><LuFacebook/></a></li>
                                     <li><a className='justify-center items-center' style={{display:"flex"}} href="https://wa.me/+919415679969"><BsWhatsapp/></a></li>
                                 </ul>
                             </div>

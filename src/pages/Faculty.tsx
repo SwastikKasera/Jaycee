@@ -35,6 +35,7 @@ const FacultyCard: React.FC<{ faculty: FacultyDataFormat }> = React.memo(({ facu
               {faculty.facultyName}
             </span>
             <span className="text-white text-sm font-martel">{faculty.facultyQualification}</span>
+            <p className="text-white text-sm font-martel">Expert in {faculty.facultySubjectExpert} subject</p>
           </span>
         </div>
         <div className="flex justify-center items-center gap-2">
