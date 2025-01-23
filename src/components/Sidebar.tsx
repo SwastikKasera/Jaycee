@@ -124,7 +124,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, setActive }) => {
                 <Dropdown title="About" icon={<LuInfo />} toggleSidebar={toggleSidebar}>
                   <Link to="/about/school" className='flex justify-start gap-2 items-center'><LuSchool /> Our School</Link>
                   <Link to="/about/founder" className='flex justify-start gap-2 items-center'><MdOutlinePersonOutline />Our Founder</Link>
-                  <Link to="/about/members" className='flex justify-start gap-2 items-center'><IoIosPeople />Our Members</Link>
+                  <Link to="/about/members" className='flex justify-start gap-2 items-center'><IoIosPeople />JC Chamber</Link>
                 </Dropdown>
               </li>
               <li>

@@ -60,7 +60,7 @@ const AboutContent = () => {
       >
         <span className="text-2xl">👨‍🏫</span>
         <div>
-          <h3 className="font-semibold">Our Members</h3>
+          <h3 className="font-semibold">JC Chambers</h3>
           <p className="text-sm">
             Meet the dedicated members who drive our school's success.
           </p>

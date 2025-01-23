@@ -23,7 +23,7 @@ import image33 from "../styles/images/shape/shape-33.png";
 import banner1 from "../styles/images/banner/banner-img-1.jpg"
 import schoolPic1 from "../assets/school_pic_1.jpg"
 import principlePic from "../assets/sqp.jpg"
-import chooseUs2 from "../assets/choose_2.jpg"
+import chooseUs2 from "../assets/What_We_Do_The_Best.jpg"
 import chooseUs3 from "../assets/choose_3.jpg"
 import icon2 from "../assets/sixty_years.png"
 import icon4 from "../styles/images/icons/icon-4.png"
@@ -362,8 +362,8 @@ const Home: React.FC = () => {
                     </figure>
                     <div className="btn-box">
                       <div className="shape"></div>
-                      <a href="/about/school">
-                        <span>About Us More</span>
+                      <a href="https://res.cloudinary.com/dxlqy4p04/image/upload/v1737617888/principle_period_179bed67af.jpg" target="_blank">
+                        <span>Principle Period</span>
                       </a>
                     </div>
                   </div>
@@ -553,12 +553,12 @@ const Home: React.FC = () => {
                         style={{ backgroundImage: `url(${image16})` }}
                       ></div>
                     </div>
-                    <figure className="image image-2">
-                      <img src={chooseUs2} className="w-[416px] h-[374px] rounded-2xl" alt="" />
+                    <figure className="image image-2 lg:w-[500px]">
+                      <img src={chooseUs2} className="w-[500px] h-[631px] rounded-2xl" alt="" />
                     </figure>
-                    <figure className="image image-3">
+                    {/* <figure className="image image-3">
                       <img src={chooseUs3} className="w-[354px] h-[240px] rounded-2xl" alt="" />
-                    </figure>
+                    </figure> */}
                   </div>
                 </div>
               </div>
@@ -941,7 +941,7 @@ const Home: React.FC = () => {
               </h2>
               <div className="btn-box">
                 <div className="shape"></div>
-                <a href="/">
+                <a href="/contact">
                   <span>Get in Touch</span>
                 </a>
               </div>

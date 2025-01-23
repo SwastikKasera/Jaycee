@@ -54,12 +54,12 @@ const Footer = () => {
                   </div>
                 </a>
               </figure>
-              <p>
+              {/* <p>
                 Mauris ut enim sit amet lacus ornare ullamcor. Praesent
                 placerat nequ puru rhoncu tincidunt odio ultrices.
-              </p>
+              </p> */}
               <h3>
-                <Link to="/">info@jayceebalmandir.com</Link>
+                {/* <Link to="/">info@jayceebalmandir.com</Link> */}
               </h3>
             </div>
           </div>
@@ -142,7 +142,7 @@ const Footer = () => {
     <div className="flex w-full mx-auto gap-4 flex-col lg:flex-row justify-between items-center px-5 py-6">
         <div className="flex flex-row justify-start items-center w-full lg:w-auto mb-4 lg:mb-0">
           <div className="flex flex-col justify-center items-center mb-2 sm:mb-0">
-            <img src={jcilogo} className="w-20 sm:w-16" alt="" />
+            <img src={jcilogo} className="w-20 sm:w-16 white-filter" alt="" />
             <p className="text-xs sm:text-sm text-center w-[85px]">ESTD 1987</p>
           </div>
           <div className="flex flex-col">

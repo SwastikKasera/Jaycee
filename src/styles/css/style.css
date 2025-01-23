@@ -2249,6 +2249,11 @@ body.out .mouse-pointer {
   margin: 0px !important;
 }
 
+.white-filter {
+  filter: grayscale(100) brightness(100);
+
+}
+
 .main-footer .social-links a{
   position: relative;
   display: flex;
