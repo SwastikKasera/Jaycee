@@ -109,7 +109,7 @@ const Footer = () => {
                     <Link to="/fee-structure">Fee Structure</Link>
                   </li>
                   <li>
-                    <Link to="https://admin.jayceebalmandir.com/">Admin</Link>
+                    <Link to="https://admin.jayceebalmandir.com/admin">Admin</Link>
                   </li>
                 </ul>
               </div>
