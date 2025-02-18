@@ -109,7 +109,7 @@ const Footer = () => {
                     <Link to="/fee-structure">Fee Structure</Link>
                   </li>
                   <li>
-                    <Link to="https://jayceeapi.onrender.com/admin">Admin</Link>
+                    <Link to="https://admin.jayceebalmandir.com/">Admin</Link>
                   </li>
                 </ul>
               </div>
