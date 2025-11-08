@@ -634,8 +634,10 @@ const Home: React.FC = () => {
               </div>
               <h2>Event Glimse & Highlights</h2>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry the <br />
+              Our school gallery captures the vibrant spirit of campus life — from annual 
+  functions and sports meets to art exhibitions and cultural festivals. <br />
+  Every photograph tells a story of creativity, teamwork, and achievement, 
+  showcasing the joyful moments and proud milestones of our students and staff. 
                 standard dummy text ever since the when an printer took.
               </p>
             </div>
