@@ -635,10 +635,7 @@ const Home: React.FC = () => {
               <h2>Event Glimse & Highlights</h2>
               <p>
               Our school gallery captures the vibrant spirit of campus life — from annual 
-  functions and sports meets to art exhibitions and cultural festivals. <br />
-  Every photograph tells a story of creativity, teamwork, and achievement, 
-  showcasing the joyful moments and proud milestones of our students and staff. 
-                standard dummy text ever since the when an printer took.
+  functions and sports meets to art exhibitions and cultural festivals.
               </p>
             </div>
           </div>
