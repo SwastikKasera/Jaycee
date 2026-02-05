@@ -80,7 +80,7 @@ const Footer = () => {
                     <Link to="/faculty">Faculty</Link>
                   </li>
                   <li>
-                    <Link to="https://schoolyam.com/enquiry/JBMJMZ">Contact Us</Link>
+                    <Link to="/contact">Contact Us</Link>
                   </li>
                   <li>
                     <Link to="/gallery/images">Gallery</Link>

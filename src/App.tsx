@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AnimatedNavbar from "./components/AnimatedNavbar";
 import Footer from "./components/Footer";
@@ -25,7 +25,6 @@ import "./styles/css/module-css/news.css";
 import "./styles/css/module-css/service-details.css";
 import { BsWhatsapp } from "react-icons/bs";
 
-const Home = lazy(() => import("./pages/Home"));
 const Home2 = lazy(() => import("./pages/HomeNew"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Faculty = lazy(() => import("./pages/Faculty"));
@@ -67,7 +66,7 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
-      <div className="fixed right-7 bottom-20 rounded-full bg-green-500 p-3 shadow-lg hover:bg-green-600 transition duration-300">
+      <div className="fixed right-7 bottom-32 rounded-full bg-green-500 p-3 shadow-lg hover:bg-green-600 transition duration-300">
       <a 
         href="https://wa.me/+919415679969" 
         target="_blank" 

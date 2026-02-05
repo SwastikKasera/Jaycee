@@ -16,6 +16,7 @@ interface FacultyDataFormat {
     small: string;
     medium: string;
     large: string;
+    url: string;
   };
 }
 
@@ -26,7 +27,7 @@ const FacultyCard: React.FC<{ faculty: FacultyDataFormat }> = React.memo(({ facu
         <div className="flex justify-start items-start">
           <img
             alt={`${faculty.facultyName}`}
-            src={faculty.facultyPhoto.medium || "https://dummyimage.com/106x106"}
+            src={faculty.facultyPhoto.medium || faculty.facultyPhoto.url || "https://dummyimage.com/106x106"}
             className="w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"
             loading="lazy"
           />
@@ -73,7 +74,8 @@ const Faculty: React.FC = () => {
         facultyPhoto: {
           small: item.attributes.facultyPhoto.data.attributes.formats.small?.url,
           medium: item.attributes.facultyPhoto.data.attributes.formats.medium?.url,
-          large: item.attributes.facultyPhoto.data.attributes.formats.large?.url
+          large: item.attributes.facultyPhoto.data.attributes.formats.large?.url,
+          url: item.attributes.facultyPhoto.data.attributes.url
         }
       }));
 

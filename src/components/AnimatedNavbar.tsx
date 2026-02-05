@@ -203,7 +203,7 @@ const AnimatedNavbar = () => {
             dropdownContent={AboutContent}
           />
           <AnimatedDropdown
-            link="https://schoolyam.com/enquiry/JBMJMZ"
+            link="/contact"
             text="Contact"
             dropdownContent={EmptyComponent}
           />
@@ -213,7 +213,7 @@ const AnimatedNavbar = () => {
           data-aos="fade-left"
           data-aos-delay="300"
         >
-          <div className="btn-box hidden lg:block light mr_30"><a href="https://wa.me/+919415679969" target="_blank" className="theme-btn"><span>Enquire Now</span></a></div>
+          <div className="btn-box hidden lg:block light mr_30"><a href="https://schoolyam.com/enquiry/JBMJMZ" target="_blank" className="theme-btn"><span>Enquire Now</span></a></div>
           <div className="block lg:hidden">
             <SidebarButton
               isOpen={isSidebarOpen}

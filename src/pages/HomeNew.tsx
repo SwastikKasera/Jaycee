@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { SwipeCarousel } from '../components/SwipeCarousel';
 import image1 from "../styles/images/shape/shape-1.png";
 import image2 from "../styles/images/shape/shape-2.png";
 import image3 from "../styles/images/shape/shape-3.png";
@@ -20,12 +21,11 @@ import image18 from "../styles/images/shape/shape-18.png";
 import image19 from "../styles/images/shape/shape-19.png";
 import image20 from "../styles/images/shape/shape-20.png";
 import image33 from "../styles/images/shape/shape-33.png";
-import banner1 from "../styles/images/banner/banner-img-1.jpg"
 import schoolPic1 from "../assets/school_pic_1.jpg"
 import principlePic from "../assets/sqp.jpg"
 import chooseUs2 from "../assets/What_We_Do_The_Best.jpg"
-import chooseUs3 from "../assets/choose_3.jpg"
 import icon2 from "../assets/sixty_years.png"
+import logo from "../assets/logo.svg";
 import icon4 from "../styles/images/icons/icon-4.png"
 import icon5 from "../styles/images/icons/icon-5.png"
 import icon6 from "../styles/images/icons/icon-6.png"
@@ -48,9 +48,6 @@ import glimpse1 from "../assets/glimpse_1.jpg"
 import glimpse2 from "../assets/glimpse_2.jpg"
 import glimpse3 from "../assets/glimpse_3.jpg"
 import glimpse4 from "../assets/glimpse_4.jpg"
-import glimpse5 from "../assets/glimpse_5.jpg"
-import glimpse6 from "../assets/glimpse_6.jpg"
-import glimpse7 from "../assets/glimpse_7.jpg"
 import { LuMoveUpRight } from "react-icons/lu";
 
 const Home: React.FC = () => {
@@ -362,7 +359,7 @@ const Home: React.FC = () => {
                     </figure>
                     <div className="btn-box">
                       <div className="shape"></div>
-                      <a href="https://res.cloudinary.com/dxlqy4p04/image/upload/v1737617888/principle_period_179bed67af.jpg" target="_blank">
+                      <a href="https://res.cloudinary.com/dxlqy4p04/image/upload/v1737617888/principle_period_179bed67af.jpg" target="_blank" rel="noreferrer">
                         <span>Principle Period</span>
                       </a>
                     </div>
@@ -965,7 +962,7 @@ const Home: React.FC = () => {
               <div className="curve-text">
                 <div className="icon-box">
                   <a href="/" className="lightbox-image" data-caption="">
-                    <img className="w-20" src={icon2} alt="" />
+                    <img className="w-20" src={logo} alt="" />
                   </a>
                 </div>
                 <div
@@ -1060,6 +1057,9 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
+        <div>
+        <SwipeCarousel/>
+        </div>
         <div className="slide-text">
           <div
             className="pattern-layer"
