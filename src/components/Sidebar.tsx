@@ -128,7 +128,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, setActive }) => {
                 </Dropdown>
               </li>
               <li>
-                <Link to="/contact" className='flex bg-neutral-900 gap-2 items-center hover:bg-neutral-800 hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
+                <Link to="https://schoolyam.com/enquiry/JBMJMZ" className='flex bg-neutral-900 gap-2 items-center hover:bg-neutral-800 hover:text-neutral-100 p-2 rounded-lg transition-colors' onClick={toggleSidebar}>
                   <LuPhone />Contact
                 </Link>
               </li>

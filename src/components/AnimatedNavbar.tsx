@@ -203,7 +203,7 @@ const AnimatedNavbar = () => {
             dropdownContent={AboutContent}
           />
           <AnimatedDropdown
-            link="/contact"
+            link="https://schoolyam.com/enquiry/JBMJMZ"
             text="Contact"
             dropdownContent={EmptyComponent}
           />
