@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
 import { LuPhone } from "react-icons/lu";
-import AdmissionOpenImg from "../assets/Admission_Open.png";
+import AdmissionOpenImg from "../assets/Admission_Open.jpg";
 
 const Admission = () => {
   const handleCall = () => {
